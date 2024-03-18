@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "name": "Smartphone",
+        "price": 1500,
+        "description": "High-performance smartphone",
+        "category": "Electronics"
+    },
+    {
+        "id": 2,
+        "name": "Wireless Earphones",
+        "price": 200,
+        "description": "Bluetooth connected wireless earphones",
+        "category": "Electronics"
+    },
+    {
+        "id": 3,
+        "name": "Classic Watch",
+        "price": 100,
+        "description": "Elegantly designed classic wristwatch",
+        "category": "Accessory"
+    },
+    {
+        "id": 4,
+        "name": "Sneakers",
+        "price": 80,
+        "description": "Comfortable and stylish sneakers",
+        "category": "Footwear"
+    },
+    {
+        "id": 5,
+        "name": "T-shirt",
+        "price": 20,
+        "description": "Casual and comfortable t-shirt",
+        "category": "Clothing"
+    },
+    {
+        "id": 6,
+        "name": "Jeans",
+        "price": 50,
+        "description": "Stylish and comfortable jeans",
+        "category": "Clothing"
+    },
+    {
+        "id": 7,
+        "name": "Backpack",
+        "price": 40,
+        "description": "Spacious and durable backpack",
+        "category": "Accessory"
+    },
+    {
+        "id": 8,
+        "name": "Laptop",
+        "price": 1000,
+        "description": "High-performance laptop",
+        "category": "Electronics"
+    },
+    {
+        "id": 9,
+        "name": "Smartwatch",
+        "price": 300,
+        "description": "High-performance smartwatch",
+        "category": "Electronics"
+    },
+    {
+        "id": 10,
+        "name": "Sunglasses",
+        "price": 50,
+        "description": "Stylish and durable sunglasses",
+        "category": "Accessory"
+    }
+]

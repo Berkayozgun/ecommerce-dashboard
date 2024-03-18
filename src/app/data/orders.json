@@ -1,0 +1,214 @@
+[
+    {
+        "id": 1,
+        "customerId": 1,
+        "products": [
+            {
+                "productId": 1,
+                "quantity": 2
+            },
+            {
+                "productId": 2,
+                "quantity": 1
+            }
+        ],
+        "totalPrice": 3200,
+        "status": "Onaylandı"
+    },
+    {
+        "id": 2,
+        "customerId": 2,
+        "products": [
+            {
+                "productId": 3,
+                "quantity": 1
+            }
+        ],
+        "totalPrice": 100,
+        "status": "Kargoya Verildi"
+    },
+    {
+        "id": 3,
+        "customerId": 3,
+        "products": [
+            {
+                "productId": 4,
+                "quantity": 1
+            },
+            {
+                "productId": 5,
+                "quantity": 1
+            }
+        ],
+        "totalPrice": 200,
+        "status": "Onaylandı"
+    },
+    {
+        "id": 4,
+        "customerId": 4,
+        "products": [
+            {
+                "productId": 6,
+                "quantity": 3
+            },
+            {
+                "productId": 7,
+                "quantity": 2
+            }
+        ],
+        "totalPrice": 500,
+        "status": "Onaylandı"
+    },
+    {
+        "id": 5,
+        "customerId": 5,
+        "products": [
+            {
+                "productId": 8,
+                "quantity": 1
+            }
+        ],
+        "totalPrice": 150,
+        "status": "Kargoya Verildi"
+    },
+    {
+        "id": 6,
+        "customerId": 6,
+        "products": [
+            {
+                "productId": 9,
+                "quantity": 2
+            },
+            {
+                "productId": 10,
+                "quantity": 1
+            }
+        ],
+        "totalPrice": 800,
+        "status": "Onaylandı"
+    },
+    {
+        "id": 7,
+        "customerId": 7,
+        "products": [
+            {
+                "productId": 11,
+                "quantity": 1
+            }
+        ],
+        "totalPrice": 100,
+        "status": "Kargoya Verildi"
+    },
+    {
+        "id": 8,
+        "customerId": 8,
+        "products": [
+            {
+                "productId": 12,
+                "quantity": 1
+            },
+            {
+                "productId": 13,
+                "quantity": 1
+            }
+        ],
+        "totalPrice": 250,
+        "status": "Onaylandı"
+    },
+    {
+        "id": 9,
+        "customerId": 9,
+        "products": [
+            {
+                "productId": 14,
+                "quantity": 2
+            }
+        ],
+        "totalPrice": 300,
+        "status": "Kargoya Verildi"
+    },
+    {
+        "id": 10,
+        "customerId": 10,
+        "products": [
+            {
+                "productId": 15,
+                "quantity": 1
+            },
+            {
+                "productId": 16,
+                "quantity": 1
+            }
+        ],
+        "totalPrice": 600,
+        "status": "Onaylandı"
+    },
+    {
+        "id": 11,
+        "customerId": 11,
+        "products": [
+            {
+                "productId": 17,
+                "quantity": 1
+            }
+        ],
+        "totalPrice": 100,
+        "status": "Kargoya Verildi"
+    },
+    {
+        "id": 12,
+        "customerId": 12,
+        "products": [
+            {
+                "productId": 18,
+                "quantity": 1
+            },
+            {
+                "productId": 19,
+                "quantity": 1
+            }
+        ],
+        "totalPrice": 250,
+        "status": "Onaylandı"
+    },
+    {
+        "id": 13,
+        "customerId": 13,
+        "products": [
+            {
+                "productId": 20,
+                "quantity": 2
+            }
+        ],
+        "totalPrice": 300,
+        "status": "Kargoya Verildi"
+    },
+    {
+        "id": 14,
+        "customerId": 14,
+        "products": [
+            {
+                "productId": 21,
+                "quantity": 1
+            },
+            {
+                "productId": 22,
+                "quantity": 1
+            }
+        ],
+        "totalPrice": 600,
+        "status": "Onaylandı"
+    },
+    {
+        "id": 15,
+        "customerId": 15,
+        "products": [
+            {
+                "productId": 23,
+                "quantity": 1
+            }
+        ],
+        "totalPrice": 100,
+        "status": "Kargoya Verildi"
+    }
+]
