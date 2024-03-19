@@ -2,14 +2,20 @@ import React from "react";
 const orders = require("./data/orders.json");
 const products = require("./data/products.json");
 const customers = require("./data/customers.json");
+import { bellIcon } from "./icons/SVGIcon";
+import Avatar from "./components/Avatar";
 
 const Dashboard = () => {
   return (
-    <div className='flex flex-col items-center justify-center h-full'>
-      <h1>Admin Dashboard</h1>
-      <br />
+    <div className='flex flex-col p-4 h-full w-full border'>
+      <div className='flex flex-row w-full justify-between'>
+        <h1>Dashboard</h1>
+        <div>{bellIcon}</div>
+        <Avatar />
+      </div>
       <div className='flex flex-row gap-40 mt-10'>
         <div>
+          {/*}
           <h2>Orders</h2>
           <br />
           <div className='flex flex-col gap-4 justify-center'>
@@ -73,8 +79,10 @@ const Dashboard = () => {
                 <p>Address: {customer.address}</p>
                 <br />
               </div>
+
             ))}
           </div>
+            */}
         </div>
       </div>
     </div>

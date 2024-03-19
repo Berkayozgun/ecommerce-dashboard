@@ -4,8 +4,9 @@ import Sidebar from "./Sidebar";
 
 export default function Home() {
   return (
-    <div className='flex w-full flex-row items-center justify-between'>
+    <div className='flex w-full flex-row '>
       <Sidebar />
+      <Dashboard />
     </div>
   );
 }
