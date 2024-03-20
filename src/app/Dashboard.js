@@ -73,7 +73,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div className='flex flex-row flex-wrap h-full w-full gap-10 mt-10'>
-        <div>
+        <div className='flex justify-center items-center shadow-2xl border rounded-xl p-4 h-20'>
           Total Profit :{" "}
           <span
             className='
@@ -83,7 +83,7 @@ const Dashboard = () => {
             $ {totalProfit}
           </span>
         </div>
-        <div>
+        <div className='flex justify-center items-center shadow-2xl border rounded-xl p-4 h-20'>
           Total Sales :{" "}
           <span
             className='
@@ -93,7 +93,7 @@ const Dashboard = () => {
             {totalSales}
           </span>
         </div>
-        <div>
+        <div className='flex justify-center items-center shadow-2xl border rounded-xl p-4 h-20'>
           All Time Income :{" "}
           <span
             className='
@@ -103,7 +103,7 @@ const Dashboard = () => {
             $ {allTimeIncome}
           </span>
         </div>
-        <div>
+        <div className='flex justify-center items-center shadow-2xl border rounded-xl p-4 h-20'>
           Payment Per Customer :{" "}
           <span
             className='
@@ -113,7 +113,7 @@ const Dashboard = () => {
             $ {paymentPerCustomer}
           </span>
         </div>
-        <div>
+        <div className='flex justify-center items-center shadow-2xl border rounded-xl p-4 h-20'>
           Customer Count :{" "}
           <span
             className='
@@ -124,7 +124,7 @@ const Dashboard = () => {
           </span>
         </div>
 
-        <div>
+        <div className='flex justify-center items-center shadow-2xl border rounded-xl p-4 h-20'>
           Most Sold Product :{" "}
           <span
             className='
@@ -134,7 +134,7 @@ const Dashboard = () => {
             {mostSoldProduct().name}
           </span>
         </div>
-        <div>
+        <div className='flex justify-center items-center shadow-2xl border rounded-xl p-4 h-20'>
           Most Buyer Customer :{" "}
           <span
             className='
