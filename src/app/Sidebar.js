@@ -16,10 +16,9 @@ import {
 
 const Sidebar = () => {
   return (
-    <div className='flex flex-col border w-1/6 h-full'>
+    <div className='flex flex-col border-r-2 w-1/6 h-full'>
       <div className='flex flex-row items-center justify-center gap-4'>
-        <img
-          srcset='https://cdn.pixabay.com/photo/2017/01/13/01/22/rocket-1976107_960_720.png 1x, https://cdn.pixabay.com/photo/2017/01/13/01/22/rocket-1976107_1280.png 2x'
+        <Image
           src='https://cdn.pixabay.com/photo/2017/01/13/01/22/rocket-1976107_1280.png'
           alt='Free rocket icon symbol vector'
           title='Download free HD stock image of Rocket Icon'
@@ -28,7 +27,7 @@ const Sidebar = () => {
         />
         <h1>Dash</h1>
         {/* hamburger menu icon*/}
-        <img
+        <Image
           src='https://www.svgrepo.com/show/532203/menu-alt-1.svg'
           width='30'
           height='30'

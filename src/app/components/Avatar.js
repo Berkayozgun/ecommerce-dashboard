@@ -2,7 +2,9 @@ import React from "react";
 import Image from "next/Image";
 
 const Avatar = ({ imageUrl, altText, size }) => {
-  return <div className='flex flex-col w-4 h-4 rounded-full border'>x</div>;
+  return (
+    <div className='flex flex-col w-8 h-8 rounded-full border bg-purple-500'></div>
+  );
 };
 
 export default Avatar;
