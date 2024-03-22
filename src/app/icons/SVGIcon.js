@@ -312,6 +312,102 @@ const bellIcon = (
   </svg>
 );
 
+const totalUserIcon = (
+  <svg
+    width='60'
+    height='60'
+    viewBox='0 0 60 60'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+  >
+    <path
+      opacity='0.21'
+      fill-rule='evenodd'
+      clip-rule='evenodd'
+      d='M0 30V37C0 49.7025 10.2975 60 23 60H30H37C49.7025 60 60 49.7025 60 37V30V23C60 10.2975 49.7025 0 37 0H30H23C10.2975 0 0 10.2975 0 23V30Z'
+      fill='#8280FF'
+    />
+    <path
+      opacity='0.587821'
+      fill-rule='evenodd'
+      clip-rule='evenodd'
+      d='M20.6667 23.3333C20.6667 26.2789 23.0545 28.6667 26 28.6667C28.9455 28.6667 31.3333 26.2789 31.3333 23.3333C31.3333 20.3878 28.9455 18 26 18C23.0545 18 20.6667 20.3878 20.6667 23.3333ZM34 28.6667C34 30.8758 35.7909 32.6667 38 32.6667C40.2091 32.6667 42 30.8758 42 28.6667C42 26.4575 40.2091 24.6667 38 24.6667C35.7909 24.6667 34 26.4575 34 28.6667Z'
+      fill='#8280FF'
+    />
+    <path
+      fill-rule='evenodd'
+      clip-rule='evenodd'
+      d='M25.9778 31.3333C19.6826 31.3333 14.5177 34.5687 14.0009 40.9323C13.9727 41.2789 14.6356 42 14.97 42H36.9956C37.9972 42 38.0128 41.194 37.9972 40.9333C37.6065 34.3909 32.3616 31.3333 25.9778 31.3333ZM45.2746 42L40.1333 42C40.1333 38.9988 39.1417 36.2291 37.4683 34.0008C42.0103 34.0505 45.7189 36.3469 45.998 41.2C46.0092 41.3955 45.998 42 45.2746 42Z'
+      fill='#8280FF'
+    />
+  </svg>
+);
+
+const risingGreen = (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    className='h-4 w-4'
+    fill='none'
+    viewBox='0 0 24 24'
+    stroke='currentColor'
+  >
+    <path
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      strokeWidth='2'
+      d='M13 7h8m0 0v8m0-8l-8 8-4-4-6 6'
+    />
+  </svg>
+);
+
+const totalProfitIcon = (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    className='h-8 w-8'
+    fill='none'
+    viewBox='0 0 24 24'
+    stroke='currentColor'
+    strokeWidth='2'
+  >
+    <path
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      d='M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z'
+    />
+  </svg>
+);
+
+const totalOrderIcon = (
+  <svg
+    width='60'
+    height='60'
+    viewBox='0 0 60 60'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+  >
+    <path
+      opacity='0.21'
+      fill-rule='evenodd'
+      clip-rule='evenodd'
+      d='M0 30V37C0 49.7025 10.2975 60 23 60H30H37C49.7025 60 60 49.7025 60 37V30V23C60 10.2975 49.7025 0 37 0H30H23C10.2975 0 0 10.2975 0 23V30Z'
+      fill='#FEC53D'
+    />
+    <path
+      fill-rule='evenodd'
+      clip-rule='evenodd'
+      d='M15 24.3165L27.9005 31.7646C28.0394 31.8448 28.1851 31.9027 28.3333 31.9395V46.3847L15.9201 39.0385C15.3498 38.701 15 38.0876 15 37.4249V24.3165ZM45 24.1185V37.4249C45 38.0876 44.6502 38.701 44.0799 39.0385L31.6667 46.3847V31.8129C31.6969 31.7978 31.7269 31.7817 31.7566 31.7646L45 24.1185Z'
+      fill='#FEC53D'
+    />
+    <path
+      opacity='0.499209'
+      fill-rule='evenodd'
+      clip-rule='evenodd'
+      d='M15.4052 20.7014C15.5628 20.5024 15.7617 20.3343 15.9936 20.2108L29.1186 13.2201C29.6695 12.9266 30.3304 12.9266 30.8814 13.2201L44.0064 20.2108C44.1852 20.306 44.3443 20.4277 44.48 20.5697L30.0899 28.8778C29.9953 28.9325 29.908 28.995 29.8285 29.064C29.749 28.995 29.6618 28.9325 29.5671 28.8778L15.4052 20.7014Z'
+      fill='#FEC53D'
+    />
+  </svg>
+);
+
 export {
   dashboardIcon,
   orderManagementIcon,
@@ -325,4 +421,8 @@ export {
   manageAdminIcon,
   adminRolesIcon,
   bellIcon,
+  totalUserIcon,
+  risingGreen,
+  totalProfitIcon,
+  totalOrderIcon,
 };
