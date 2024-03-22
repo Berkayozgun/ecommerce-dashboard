@@ -10,6 +10,8 @@ import {
   totalOrderIcon,
 } from "./icons/SVGIcon";
 import Avatar from "./components/Avatar";
+import Image from "next/Image";
+import StatsCard from "./components/StatsCard";
 
 const calculateTotalProfit = () => {
   // randomize the total profit calculation like 123.634 $
@@ -75,117 +77,50 @@ const Dashboard = () => {
       </div>
 
       <div className='flex flex-row flex-wrap h-full w-full gap-10 mt-10'>
-        <div className='flex flex-col w-3/12 shadow-2xl h-36 rounded-lg border border-gray-100 bg-white p-6 justify-between gap-4'>
-          <div className='flex items-center justify-between'>
-            <div>
-              <p className='text-sm text-gray-500'>Total User</p>
-
-              <p className='text-2xl font-medium text-gray-900'>
-                {customerCount}
-              </p>
-            </div>
-
-            <span className='rounded-full'>{totalUserIcon}</span>
-          </div>
-
-          <div className='mt-1 flex gap-1 text-green-600'>
-            {risingGreen}
-            <p className='flex gap-2 text-xs'>
-              <span className='font-medium'> 8.51% </span>
-
-              <span className='text-gray-500'> Since last week </span>
-            </p>
-          </div>
-        </div>
-
-        <div className='flex flex-col w-2/6 shadow-2xl h-36 rounded-lg border border-gray-100 justify-between bg-white p-6'>
-          <div className='flex items-center justify-between'>
-            <div>
-              <p className='text-sm text-gray-500'>Profit</p>
-
-              <p className='text-2xl font-medium text-gray-900'>
-                $ {totalProfit}
-              </p>
-            </div>
-
-            <span className='rounded-full bg-blue-100 p-3 text-blue-600'>
-              {totalProfitIcon}
-            </span>
-          </div>
-
-          <div className='mt-1 flex gap-1 text-green-600'>
-            {risingGreen}
-
-            <p className='flex gap-2 text-xs'>
-              <span className='font-medium'> 67.81% </span>
-
-              <span className='text-gray-500'> Since last week </span>
-            </p>
-          </div>
-        </div>
-
-        <div className='flex flex-col w-3/12 shadow-2xl h-36 rounded-lg border border-gray-100 bg-white p-6 justify-between gap-4'>
-          <div className='flex items-center justify-between'>
-            <div>
-              <p className='text-sm text-gray-500'>Total Order</p>
-
-              <p className='text-2xl font-medium text-gray-900'>{totalSales}</p>
-            </div>
-
-            <span className='rounded-full'>{totalOrderIcon}</span>
-          </div>
-
-          <div className='mt-1 flex gap-1 text-green-600'>
-            {risingGreen}
-
-            <p className='flex gap-2 text-xs'>
-              <span className='font-medium'> 8.51% </span>
-
-              <span className='text-gray-500'> Since last week </span>
-            </p>
-          </div>
-        </div>
-        <div className='flex justify-center items-center shadow-2xl border rounded-xl p-4 h-20'>
-          All Time Income :{" "}
-          <span
-            className='
-          text-4xl font-bold text-yellow-500'
-          >
-            {" "}
-            $ {allTimeIncome}
-          </span>
-        </div>
-        <div className='flex justify-center items-center shadow-2xl border rounded-xl p-4 h-20'>
-          Payment Per Customer :{" "}
-          <span
-            className='
-          text-4xl font-bold text-red-500'
-          >
-            {" "}
-            $ {paymentPerCustomer}
-          </span>
-        </div>
-
-        <div className='flex justify-center items-center shadow-2xl border rounded-xl p-4 h-20'>
-          Most Sold Product :{" "}
-          <span
-            className='
-          text-4xl font-bold text-purple-500'
-          >
-            {" "}
-            {mostSoldProduct().name}
-          </span>
-        </div>
-        <div className='flex justify-center items-center shadow-2xl border rounded-xl p-4 h-20'>
-          Most Buyer Customer :{" "}
-          <span
-            className='
-          text-4xl font-bold text-purple-500'
-          >
-            {" "}
-            {mostBuyerCustomer().name}
-          </span>
-        </div>
+        {/* Kartlar */}
+        <StatsCard
+          title='Total User'
+          value={customerCount}
+          icon={totalUserIcon}
+        />
+        <StatsCard
+          title='Profit'
+          value={`$ ${totalProfit}`}
+          icon={totalProfitIcon}
+        />
+        <StatsCard
+          title='Total Order'
+          value={totalSales}
+          icon={totalOrderIcon}
+        />
+        <StatsCard
+          title='All Time Income'
+          value={`$ ${allTimeIncome}`}
+          icon={totalOrderIcon}
+        />
+        <StatsCard
+          title='Payment Per Customer'
+          value={`$ ${paymentPerCustomer}`}
+          icon={totalOrderIcon}
+        />
+        <StatsCard
+          title='Most Sold Product'
+          value={mostSoldProduct().name}
+          icon={totalOrderIcon}
+        />
+        <StatsCard
+          title='Most Buyer Customer'
+          value={mostBuyerCustomer().name}
+          icon={
+            <Image
+              src={mostBuyerCustomer().profile}
+              width={50}
+              height={50}
+              alt='Buyer'
+              className='rounded-xl'
+            />
+          }
+        />
       </div>
     </div>
   );
