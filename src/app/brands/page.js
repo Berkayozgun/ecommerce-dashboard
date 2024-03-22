@@ -58,7 +58,7 @@ export default function Page() {
   return (
     <div className='flex w-full flex-row items-center justify-center'>
       <div className='flex flex-col w-full max-w-md p-4 space-y-4 bg-white rounded-xl shadow-xl'>
-        ProductList
+        Brands
         <ul role='list' className='divide-y divide-gray-100 '>
           {people.map((person) => (
             <li

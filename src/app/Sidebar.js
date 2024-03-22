@@ -42,15 +42,17 @@ const Sidebar = () => {
             <div>Dashboard</div>
           </div>
         </Link>
-        <div
-          role='button'
-          tabindex='0'
-          className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-        >
-          {" "}
-          {orderManagementIcon}
-          <div>Order Management</div>
-        </div>
+        <Link href='/orders'>
+          <div
+            role='button'
+            tabindex='0'
+            className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
+          >
+            {" "}
+            {orderManagementIcon}
+            <div>Order Management</div>
+          </div>
+        </Link>
         <Link href='/customers'>
           <div
             role='button'
@@ -62,54 +64,64 @@ const Sidebar = () => {
             <div>Customers</div>
           </div>
         </Link>
-        <div
-          role='button'
-          tabindex='0'
-          className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-        >
-          {" "}
-          {couponIcon}
-          <div>Coupon Code</div>
-        </div>
-        <div
-          role='button'
-          tabindex='0'
-          className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-        >
-          {" "}
-          {categoriesIcon}
-          <div>Categories</div>
-        </div>
-        <div
-          role='button'
-          tabindex='0'
-          className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-        >
-          {" "}
-          {transactionIcon}
-          <div>Transaction</div>
-        </div>
-        <div
-          role='button'
-          tabindex='0'
-          className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-        >
-          {" "}
-          {brandIcon}
-          <div>Brand</div>
-        </div>
+        <Link href='./coupons'>
+          <div
+            role='button'
+            tabindex='0'
+            className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
+          >
+            {" "}
+            {couponIcon}
+            <div>Coupon Code</div>
+          </div>
+        </Link>
+        <Link href='./categories'>
+          <div
+            role='button'
+            tabindex='0'
+            className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
+          >
+            {" "}
+            {categoriesIcon}
+            <div>Categories</div>
+          </div>
+        </Link>
+        <Link href='./transactions'>
+          <div
+            role='button'
+            tabindex='0'
+            className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
+          >
+            {" "}
+            {transactionIcon}
+            <div>Transaction</div>
+          </div>
+        </Link>
+        <Link href='./brands'>
+          <div
+            role='button'
+            tabindex='0'
+            className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
+          >
+            {" "}
+            {brandIcon}
+            <div>Brand</div>
+          </div>
+        </Link>
       </ul>
       <ul className='flex flex-col p-4'>
-        <div className='text-xs uppercase text-gray-500'>Products</div>
-        <div
-          role='button'
-          tabindex='0'
-          className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-        >
-          {" "}
-          {addProductIcon}
-          <div>Add Products</div>
-        </div>
+        <Link href='./addproduct'>
+          <div className='text-xs uppercase text-gray-500'>Products</div>
+          <div
+            role='button'
+            tabindex='0'
+            className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
+          >
+            {" "}
+            {addProductIcon}
+            <div>Add Products</div>
+          </div>
+        </Link>
         <Link href='/products'>
           <div
             role='button'
@@ -122,26 +134,31 @@ const Sidebar = () => {
           </div>
         </Link>
       </ul>
+
       <ul className='flex flex-col p-4 '>
-        <div className='text-xs uppercase text-gray-500'>Admin</div>
-        <div
-          role='button'
-          tabindex='0'
-          className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-        >
-          {" "}
-          {manageAdminIcon}
-          <div>Manage Admins</div>
-        </div>
-        <div
-          role='button'
-          tabindex='0'
-          className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-        >
-          {" "}
-          {adminRolesIcon}
-          <div>Admin Roles</div>
-        </div>
+        <Link href='./admin'>
+          <div className='text-xs uppercase text-gray-500'>Admin</div>
+          <div
+            role='button'
+            tabindex='0'
+            className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
+          >
+            {" "}
+            {manageAdminIcon}
+            <div>Manage Admins</div>
+          </div>
+        </Link>
+        <Link href='./adminroles'>
+          <div
+            role='button'
+            tabindex='0'
+            className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
+          >
+            {" "}
+            {adminRolesIcon}
+            <div>Admin Roles</div>
+          </div>
+        </Link>
       </ul>
     </div>
   );
