@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   dashboardIcon,
   orderManagementIcon,
@@ -28,15 +29,19 @@ const Sidebar = () => {
         <h1>Dashboard</h1>
       </div>
       <ul className='flex flex-col p-4 '>
-        <div className='text-xs uppercase text-gray-500'>Main Menu</div>
-        <div
-          role='button'
-          tabindex='0'
-          className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-        >
-          <div>{dashboardIcon}</div>
-          <div>Dashboard</div>
-        </div>
+        <Link href='/'>
+          <div className='text-xs uppercase text-gray-500'>Main Menu</div>
+        </Link>
+        <Link href='/dashboard'>
+          <div
+            role='button'
+            tabindex='0'
+            className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
+          >
+            <div>{dashboardIcon}</div>
+            <div>Dashboard</div>
+          </div>
+        </Link>
         <div
           role='button'
           tabindex='0'
@@ -46,15 +51,17 @@ const Sidebar = () => {
           {orderManagementIcon}
           <div>Order Management</div>
         </div>
-        <div
-          role='button'
-          tabindex='0'
-          className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-        >
-          {" "}
-          {customersIcon}
-          <div>Customers</div>
-        </div>
+        <Link href='/customers'>
+          <div
+            role='button'
+            tabindex='0'
+            className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
+          >
+            {" "}
+            {customersIcon}
+            <div>Customers</div>
+          </div>
+        </Link>
         <div
           role='button'
           tabindex='0'
@@ -103,15 +110,17 @@ const Sidebar = () => {
           {addProductIcon}
           <div>Add Products</div>
         </div>
-        <div
-          role='button'
-          tabindex='0'
-          className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-        >
-          {" "}
-          {productListIcon}
-          <div>Product List</div>
-        </div>
+        <Link href='/products'>
+          <div
+            role='button'
+            tabindex='0'
+            className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
+          >
+            {" "}
+            {productListIcon}
+            <div>Product List</div>
+          </div>
+        </Link>
       </ul>
       <ul className='flex flex-col p-4 '>
         <div className='text-xs uppercase text-gray-500'>Admin</div>
