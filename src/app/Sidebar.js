@@ -26,7 +26,9 @@ const Sidebar = () => {
           width='70'
           height='70'
         />
-        <h1>Dashboard</h1>
+        <Link href='/'>
+          <h1>Dashboard</h1>
+        </Link>
       </div>
       <ul className='flex flex-col p-4 '>
         <Link href='/'>

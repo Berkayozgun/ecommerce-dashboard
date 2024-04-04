@@ -1,4 +1,3 @@
-import Dashboard from "../Dashboard";
 import Image from "next/image";
 const people = [
   {
