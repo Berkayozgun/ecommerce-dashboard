@@ -9,7 +9,7 @@ import {
   totalOrderIcon,
 } from "../icons/SVGIcon";
 import Avatar from "../components/Avatar";
-import Image from "next/Image";
+import Image from "next/image";
 import StatsCard from "../components/StatsCard";
 
 const calculateTotalProfit = () => {

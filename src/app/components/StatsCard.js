@@ -6,7 +6,7 @@ import {
   totalProfitIcon,
 } from "../icons/SVGIcon";
 import Avatar from "./Avatar";
-import Image from "next/Image";
+import Image from "next/image";
 
 const StatCard = ({ title, value, icon, extraContent }) => {
   return (
