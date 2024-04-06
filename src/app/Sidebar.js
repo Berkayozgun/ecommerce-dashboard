@@ -17,7 +17,7 @@ import {
 
 const Sidebar = () => {
   return (
-    <div class='flex flex-col rounded-xl bg-white text-gray-700 h-full w-3/12 p-4 shadow-xl shadow-blue-gray-900/5'>
+    <div className='flex flex-col rounded-xl bg-white text-gray-700 h-full w-3/12 p-4 shadow-xl shadow-blue-gray-900/5'>
       <div className='flex flex-row items-center justify-center gap-4'>
         <Image
           src='https://cdn.pixabay.com/photo/2017/01/13/01/22/rocket-1976107_1280.png'
@@ -37,7 +37,7 @@ const Sidebar = () => {
         <Link href='/dashboard'>
           <div
             role='button'
-            tabindex='0'
+            tabIndex='0'
             className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
           >
             <div>{dashboardIcon}</div>
@@ -47,7 +47,7 @@ const Sidebar = () => {
         <Link href='/orders'>
           <div
             role='button'
-            tabindex='0'
+            tabIndex='0'
             className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
           >
             {" "}
@@ -58,7 +58,7 @@ const Sidebar = () => {
         <Link href='/customers'>
           <div
             role='button'
-            tabindex='0'
+            tabIndex='0'
             className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
           >
             {" "}
@@ -69,7 +69,7 @@ const Sidebar = () => {
         <Link href='./coupons'>
           <div
             role='button'
-            tabindex='0'
+            tabIndex='0'
             className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
           >
             {" "}
@@ -80,7 +80,7 @@ const Sidebar = () => {
         <Link href='./categories'>
           <div
             role='button'
-            tabindex='0'
+            tabIndex='0'
             className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
           >
             {" "}
@@ -91,7 +91,7 @@ const Sidebar = () => {
         <Link href='./transactions'>
           <div
             role='button'
-            tabindex='0'
+            tabIndex='0'
             className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
           >
             {" "}
@@ -102,7 +102,7 @@ const Sidebar = () => {
         <Link href='./brands'>
           <div
             role='button'
-            tabindex='0'
+            tabIndex='0'
             className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
           >
             {" "}
@@ -116,7 +116,7 @@ const Sidebar = () => {
           <div className='text-xs uppercase text-gray-500'>Products</div>
           <div
             role='button'
-            tabindex='0'
+            tabIndex='0'
             className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
           >
             {" "}
@@ -127,7 +127,7 @@ const Sidebar = () => {
         <Link href='/products'>
           <div
             role='button'
-            tabindex='0'
+            tabIndex='0'
             className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
           >
             {" "}
@@ -142,7 +142,7 @@ const Sidebar = () => {
           <div className='text-xs uppercase text-gray-500'>Admin</div>
           <div
             role='button'
-            tabindex='0'
+            tabIndex='0'
             className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
           >
             {" "}
@@ -153,7 +153,7 @@ const Sidebar = () => {
         <Link href='./adminroles'>
           <div
             role='button'
-            tabindex='0'
+            tabIndex='0'
             className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
           >
             {" "}

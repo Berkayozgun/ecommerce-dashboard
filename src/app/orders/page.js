@@ -1,15 +1,15 @@
 export default function Page() {
   return (
     <div className='flex w-full flex-row '>
-      <div class='bg-white flex'>
-        <div class='py-8 px-4 mx-auto '>
-          <div class='bg-gray-50 border border-gray-200 rounded-2xl p-8 md:p-12 mb-8'>
+      <div className='bg-white flex'>
+        <div className='py-8 px-4 mx-auto '>
+          <div className='bg-gray-50 border border-gray-200 rounded-2xl p-8 md:p-12 mb-8'>
             <a
               href='#'
-              class='bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-2'
+              className='bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-2'
             >
               <svg
-                class='w-2.5 h-2.5 me-1.5'
+                className='w-2.5 h-2.5 me-1.5'
                 aria-hidden='true'
                 xmlns='http://www.w3.org/2000/svg'
                 fill='currentColor'
@@ -19,21 +19,21 @@ export default function Page() {
               </svg>
               Tutorial
             </a>
-            <h1 class='text-gray-900 text-3xl md:text-5xl font-extrabold mb-2'>
+            <h1 className='text-gray-900 text-3xl md:text-5xl font-extrabold mb-2'>
               Orders
             </h1>
-            <p class='text-lg font-normal text-gray-500 mb-6'>
+            <p className='text-lg font-normal text-gray-500 mb-6'>
               Static websites are now used to bootstrap lots of websites and are
               becoming the basis for a variety of tools that even influence both
               web designers and developers.
             </p>
             <a
               href='#'
-              class='inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300'
+              className='inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300'
             >
               Read more
               <svg
-                class='w-3.5 h-3.5 ms-2 rtl:rotate-180'
+                className='w-3.5 h-3.5 ms-2 rtl:rotate-180'
                 aria-hidden='true'
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
@@ -41,22 +41,22 @@ export default function Page() {
               >
                 <path
                   stroke='currentColor'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
                   d='M1 5h12m0 0L9 1m4 4L9 9'
                 />
               </svg>
             </a>
           </div>
-          <div class='grid md:grid-cols-2 gap-8'>
-            <div class='bg-gray-50 rounded-2xl border border-gray-200rounded-lg p-8 md:p-12'>
+          <div className='grid md:grid-cols-2 gap-8'>
+            <div className='bg-gray-50 rounded-2xl border border-gray-200rounded-lg p-8 md:p-12'>
               <a
                 href='#'
-                class='bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-2'
+                className='bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-2'
               >
                 <svg
-                  class='w-2.5 h-2.5 me-1.5'
+                  className='w-2.5 h-2.5 me-1.5'
                   aria-hidden='true'
                   xmlns='http://www.w3.org/2000/svg'
                   fill='currentColor'
@@ -66,21 +66,21 @@ export default function Page() {
                 </svg>
                 Design
               </a>
-              <h2 class='text-gray-900 text-3xl font-extrabold mb-2'>
+              <h2 className='text-gray-900 text-3xl font-extrabold mb-2'>
                 Start with Flowbite Design System
               </h2>
-              <p class='text-lg font-normal text-gray-500 mb-4'>
+              <p className='text-lg font-normal text-gray-500 mb-4'>
                 Static websites are now used to bootstrap lots of websites and
                 are becoming the basis for a variety of tools that even
                 influence both web designers and developers.
               </p>
               <a
                 href='#'
-                class='text-blue-600 hover:underline font-medium text-lg inline-flex items-center'
+                className='text-blue-600 hover:underline font-medium text-lg inline-flex items-center'
               >
                 Read more
                 <svg
-                  class='w-3.5 h-3.5 ms-2 rtl:rotate-180'
+                  className='w-3.5 h-3.5 ms-2 rtl:rotate-180'
                   aria-hidden='true'
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
@@ -88,21 +88,21 @@ export default function Page() {
                 >
                   <path
                     stroke='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
                     d='M1 5h12m0 0L9 1m4 4L9 9'
                   />
                 </svg>
               </a>
             </div>
-            <div class='bg-gray-50 rounded-2xl border border-gray-200 p-8 md:p-12'>
+            <div className='bg-gray-50 rounded-2xl border border-gray-200 p-8 md:p-12'>
               <a
                 href='#'
-                class='bg-purple-100 text-purple-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-2'
+                className='bg-purple-100 text-purple-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-2'
               >
                 <svg
-                  class='w-2.5 h-2.5 me-1.5'
+                  className='w-2.5 h-2.5 me-1.5'
                   aria-hidden='true'
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
@@ -110,29 +110,29 @@ export default function Page() {
                 >
                   <path
                     stroke='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
                     d='M5 4 1 8l4 4m10-8 4 4-4 4M11 1 9 15'
                   />
                 </svg>
                 Code
               </a>
-              <h2 class='text-gray-900 text-3xl font-extrabold mb-2'>
+              <h2 className='text-gray-900 text-3xl font-extrabold mb-2'>
                 Best react libraries around the web
               </h2>
-              <p class='text-lg font-normal text-gray-500 mb-4'>
+              <p className='text-lg font-normal text-gray-500 mb-4'>
                 Static websites are now used to bootstrap lots of websites and
                 are becoming the basis for a variety of tools that even
                 influence both web designers and developers.
               </p>
               <a
                 href='#'
-                class='text-blue-600 hover:underline font-medium text-lg inline-flex items-center'
+                className='text-blue-600 hover:underline font-medium text-lg inline-flex items-center'
               >
                 Read more
                 <svg
-                  class='w-3.5 h-3.5 ms-2 rtl:rotate-180'
+                  className='w-3.5 h-3.5 ms-2 rtl:rotate-180'
                   aria-hidden='true'
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
@@ -140,9 +140,9 @@ export default function Page() {
                 >
                   <path
                     stroke='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
                     d='M1 5h12m0 0L9 1m4 4L9 9'
                   />
                 </svg>
