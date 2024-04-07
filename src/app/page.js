@@ -24,10 +24,12 @@ export default function Home() {
 
 function StatusItem({ label, status }) {
   return (
-    <div className='flex justify-between items-center'>
+    <div className='flex justify-between gap-4 items-center'>
       <span>{label} :</span>
       <span
-        className={`text-${typeof status === "string" ? "green" : "gray"}-500`}
+        className={`text-white px-2 py-1 rounded-md ${
+          status === "Online" ? "bg-green-500" : "bg-red-500"
+        }`}
       >
         {status}
       </span>

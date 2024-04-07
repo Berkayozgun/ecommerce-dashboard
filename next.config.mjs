@@ -6,6 +6,7 @@ const nextConfig = {
       "www.svgrepo.com",
       "i.pravatar.cc",
       "images.unsplash.com",
+      "upload.wikimedia.org",
     ],
   },
 };
