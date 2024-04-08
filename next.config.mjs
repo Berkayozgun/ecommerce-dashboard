@@ -7,6 +7,7 @@ const nextConfig = {
       "i.pravatar.cc",
       "images.unsplash.com",
       "upload.wikimedia.org",
+      "cdn.fakercloud.com",
     ],
   },
 };
