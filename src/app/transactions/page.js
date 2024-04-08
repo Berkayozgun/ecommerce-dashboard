@@ -1,108 +1,168 @@
-import Image from "next/image";
-const people = [
-  {
-    name: "Leslie Alexander",
-    email: "leslie.alexander@example.com",
-    role: "Co-Founder / CEO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
-  },
-  {
-    name: "Michael Foster",
-    email: "michael.foster@example.com",
-    role: "Co-Founder / CTO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
-  },
-  {
-    name: "Dries Vincent",
-    email: "dries.vincent@example.com",
-    role: "Business Relations",
-    imageUrl:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: null,
-  },
-  {
-    name: "Lindsay Walton",
-    email: "lindsay.walton@example.com",
-    role: "Front-end Developer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
-  },
-  {
-    name: "Courtney Henry",
-    email: "courtney.henry@example.com",
-    role: "Designer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
-  },
-  {
-    name: "Tom Cook",
-    email: "tom.cook@example.com",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: null,
-  },
-];
-export default function Page() {
+"use client";
+import React, { useState } from "react";
+
+const TransactionsPage = () => {
+  // Örnek bir transactions listesi
+  const [transactions, setTransactions] = useState([
+    {
+      id: 1,
+      date: "2024-04-01",
+      amount: 100.0,
+      type: "Credit Card",
+      status: "Completed",
+      product: "T-shirt",
+      buyer: "John Doe",
+      shippingStatus: "Shipped",
+      trackingNumber: "ABC123456789",
+      notes: "Customer requested express delivery",
+    },
+    {
+      id: 2,
+      date: "2024-04-02",
+      amount: 50.0,
+      type: "PayPal",
+      status: "Completed",
+      product: "Jeans",
+      buyer: "Jane Smith",
+      shippingStatus: "In Progress",
+      trackingNumber: null,
+      notes: "",
+    },
+    {
+      id: 3,
+      date: "2024-04-03",
+      amount: 75.0,
+      type: "Bank Transfer",
+      status: "Pending",
+      product: "Sneakers",
+      buyer: "Bob Johnson",
+      shippingStatus: "Not Shipped",
+      trackingNumber: null,
+      notes: "Waiting for payment confirmation",
+    },
+    {
+      id: 4,
+      date: "2024-04-04",
+      amount: 200.0,
+      type: "Credit Card",
+      status: "Completed",
+      product: "Jacket",
+      buyer: "Alice Brown",
+      shippingStatus: "Shipped",
+      trackingNumber: "XYZ987654321",
+      notes: "",
+    },
+    {
+      id: 5,
+      date: "2024-04-05",
+      amount: 150.0,
+      type: "PayPal",
+      status: "Completed",
+      product: "Dress",
+      buyer: "Eve White",
+      shippingStatus: "Shipped",
+      trackingNumber: "DEF456123789",
+      notes: "",
+    },
+    {
+      id: 6,
+      date: "2024-04-06",
+      amount: 120.0,
+      type: "Credit Card",
+      status: "Completed",
+      product: "Hat",
+      buyer: "Charlie Black",
+      shippingStatus: "Shipped",
+      trackingNumber: "GHI654321987",
+      notes: "",
+    },
+    {
+      id: 7,
+      date: "2024-04-07",
+      amount: 80.0,
+      type: "PayPal",
+      status: "Completed",
+      product: "Shoes",
+      buyer: "David Green",
+      shippingStatus: "Shipped",
+      trackingNumber: "JKL321987654",
+      notes: "",
+    },
+    {
+      id: 8,
+      date: "2024-04-08",
+      amount: 90.0,
+      type: "Credit Card",
+      status: "Completed",
+      product: "Socks",
+      buyer: "Frank Grey",
+      shippingStatus: "Shipped",
+      trackingNumber: "MNO987654321",
+      notes: "",
+    },
+    {
+      id: 9,
+      date: "2024-04-09",
+      amount: 70.0,
+      type: "PayPal",
+      status: "Completed",
+      product: "Gloves",
+      buyer: "George Brown",
+      shippingStatus: "Shipped",
+      trackingNumber: "PQR654321987",
+      notes: "",
+    },
+    {
+      id: 10,
+      date: "2024-04-10",
+      amount: 110.0,
+      type: "Credit Card",
+      status: "Completed",
+      product: "Scarf",
+      buyer: "Helen White",
+      shippingStatus: "Shipped",
+      trackingNumber: "STU321987654",
+      notes: "",
+    },
+  ]);
+
   return (
-    <div className='flex w-full flex-row items-center justify-center'>
-      <div className='flex flex-col w-full max-w-md p-4 space-y-4 bg-white rounded-xl shadow-xl'>
-        Transaction
-        <ul role='list' className='divide-y divide-gray-100 '>
-          {people.map((person) => (
-            <li
-              key={person.email}
-              className='flex justify-between gap-x-6 py-5'
-            >
-              <div className='flex min-w-0 gap-x-4'>
-                <Image
-                  className='h-12 w-12 flex-none rounded-full bg-gray-50'
-                  src={person.imageUrl}
-                  alt=''
-                  width={40}
-                  height={40}
-                />
-                <div className='min-w-0 flex-auto'>
-                  <p className='text-sm font-semibold leading-6 text-gray-900'>
-                    {person.name}
-                  </p>
-                  <p className='mt-1 truncate text-xs leading-5 text-gray-500'>
-                    {person.email}
-                  </p>
-                </div>
-              </div>
-              <div className='hidden shrink-0 sm:flex sm:flex-col sm:items-end'>
-                <p className='text-sm leading-6 text-gray-900'>{person.role}</p>
-                {person.lastSeen ? (
-                  <p className='mt-1 text-xs leading-5 text-gray-500'>
-                    Last seen{" "}
-                    <time dateTime={person.lastSeenDateTime}>
-                      {person.lastSeen}
-                    </time>
-                  </p>
-                ) : (
-                  <div className='mt-1 flex items-center gap-x-1.5'>
-                    <div className='flex-none rounded-full bg-emerald-500/20 p-1'>
-                      <div className='h-1.5 w-1.5 rounded-full bg-emerald-500' />
-                    </div>
-                    <p className='text-xs leading-5 text-gray-500'>Online</p>
-                  </div>
-                )}
-              </div>
-            </li>
+    <div>
+      <h1>Transactions</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Product</th>
+            <th>Buyer</th>
+            <th>Shipping Status</th>
+            <th>Tracking Number</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {transactions.map((transaction) => (
+            <tr key={transaction.id}>
+              <td>{transaction.id}</td>
+              <td>{transaction.date}</td>
+              <td>{transaction.amount}</td>
+              <td>{transaction.type}</td>
+              <td>{transaction.status}</td>
+              <td>{transaction.product}</td>
+              <td>{transaction.buyer}</td>
+              <td>{transaction.shippingStatus}</td>
+              <td>{transaction.trackingNumber}</td>
+              <td>{transaction.notes}</td>
+            </tr>
           ))}
-        </ul>
-      </div>
+        </tbody>
+      </table>
     </div>
   );
-}
+};
+
+export default TransactionsPage;
