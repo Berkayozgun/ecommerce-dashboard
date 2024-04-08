@@ -1,108 +1,142 @@
 import Image from "next/image";
-const people = [
+
+const categories = [
   {
-    name: "Leslie Alexander",
-    email: "leslie.alexander@example.com",
-    role: "Co-Founder / CEO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
+    categoryId: 1,
+    categoryName: "Electronics",
+    categoryDescription: "Electronics and Gadgets",
+    categoryImage: "https://i.pravatar.cc/150?u=Electronics",
+    categoryStatus: "Active",
   },
   {
-    name: "Michael Foster",
-    email: "michael.foster@example.com",
-    role: "Co-Founder / CTO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
+    categoryId: 2,
+    categoryName: "Clothing",
+    categoryDescription: "Clothing and Accessories",
+    categoryImage: "https://i.pravatar.cc/150?u=Clothing",
+    categoryStatus: "Active",
   },
   {
-    name: "Dries Vincent",
-    email: "dries.vincent@example.com",
-    role: "Business Relations",
-    imageUrl:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: null,
+    categoryId: 3,
+    categoryName: "Books",
+    categoryDescription: "Books and Stationary",
+    categoryImage: "https://i.pravatar.cc/150?u=Books",
+    categoryStatus: "Active",
   },
   {
-    name: "Lindsay Walton",
-    email: "lindsay.walton@example.com",
-    role: "Front-end Developer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
+    categoryId: 4,
+    categoryName: "Furniture",
+    categoryDescription: "Furniture and Home Decor",
+    categoryImage: "https://i.pravatar.cc/150?u=Furniture",
+    categoryStatus: "Active",
   },
   {
-    name: "Courtney Henry",
-    email: "courtney.henry@example.com",
-    role: "Designer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
+    categoryId: 5,
+    categoryName: "Grocery",
+    categoryDescription: "Grocery and Staples",
+    categoryImage: "https://i.pravatar.cc/150?u=Grocery",
+    categoryStatus: "Active",
   },
   {
-    name: "Tom Cook",
-    email: "tom.cook@example.com",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: null,
+    categoryId: 6,
+    categoryName: "Sports",
+    categoryDescription: "Sports and Fitness",
+    categoryImage: "https://i.pravatar.cc/150?u=Sports",
+    categoryStatus: "Active",
+  },
+  {
+    categoryId: 7,
+    categoryName: "Toys",
+    categoryDescription: "Toys and Games",
+    categoryImage: "https://i.pravatar.cc/150?u=Toys",
+    categoryStatus: "Active",
+  },
+  {
+    categoryId: 8,
+    categoryName: "Automobile",
+    categoryDescription: "Automobile and Accessories",
+    categoryImage: "https://i.pravatar.cc/150?u=Automobile",
+    categoryStatus: "Active",
+  },
+  {
+    categoryId: 9,
+    categoryName: "Beauty",
+    categoryDescription: "Beauty and Personal Care",
+    categoryImage: "https://i.pravatar.cc/150?u=Beauty",
+    categoryStatus: "Active",
+  },
+  {
+    categoryId: 10,
+    categoryName: "Health",
+    categoryDescription: "Health and Wellness",
+    categoryImage: "https://i.pravatar.cc/150?u=Health",
+    categoryStatus: "Active",
+  },
+  {
+    categoryId: 11,
+    categoryName: "Jewellery",
+    categoryDescription: "Jewellery and Accessories",
+    categoryImage: "https://i.pravatar.cc/150?u=Jewellery",
+    categoryStatus: "Active",
+  },
+  {
+    categoryId: 12,
+    categoryName: "Pets",
+    categoryDescription: "Pets and Accessories",
+    categoryImage: "https://i.pravatar.cc/150?u=Pets",
+    categoryStatus: "Active",
+  },
+  {
+    categoryId: 13,
+    categoryName: "Tools",
+    categoryDescription: "Tools and Hardware",
+    categoryImage: "https://i.pravatar.cc/150?u=Tools",
+    categoryStatus: "Active",
+  },
+  {
+    categoryId: 14,
+    categoryName: "Travel",
+    categoryDescription: "Travel and Luggage",
+    categoryImage: "https://i.pravatar.cc/150?u=Travel",
+    categoryStatus: "Active",
+  },
+  {
+    categoryId: 15,
+    categoryName: "Watches",
+    categoryDescription: "Watches and Accessories",
+    categoryImage: "https://i.pravatar.cc/150?u=Watches",
   },
 ];
 export default function Page() {
   return (
-    <div className='flex w-full flex-row items-center justify-center'>
-      <div className='flex flex-col w-full max-w-md p-4 space-y-4 bg-white rounded-xl shadow-xl'>
-        Categories
-        <ul role='list' className='divide-y divide-gray-100 '>
-          {people.map((person) => (
-            <li
-              key={person.email}
-              className='flex justify-between gap-x-6 py-5'
-            >
-              <div className='flex min-w-0 gap-x-4'>
-                <Image
-                  className='h-12 w-12 flex-none rounded-full bg-gray-50'
-                  src={person.imageUrl}
-                  alt=''
-                  width={40}
-                  height={40}
-                />
-                <div className='min-w-0 flex-auto'>
-                  <p className='text-sm font-semibold leading-6 text-gray-900'>
-                    {person.name}
-                  </p>
-                  <p className='mt-1 truncate text-xs leading-5 text-gray-500'>
-                    {person.email}
-                  </p>
-                </div>
-              </div>
-              <div className='hidden shrink-0 sm:flex sm:flex-col sm:items-end'>
-                <p className='text-sm leading-6 text-gray-900'>{person.role}</p>
-                {person.lastSeen ? (
-                  <p className='mt-1 text-xs leading-5 text-gray-500'>
-                    Last seen{" "}
-                    <time dateTime={person.lastSeenDateTime}>
-                      {person.lastSeen}
-                    </time>
-                  </p>
-                ) : (
-                  <div className='mt-1 flex items-center gap-x-1.5'>
-                    <div className='flex-none rounded-full bg-emerald-500/20 p-1'>
-                      <div className='h-1.5 w-1.5 rounded-full bg-emerald-500' />
-                    </div>
-                    <p className='text-xs leading-5 text-gray-500'>Online</p>
-                  </div>
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className='flex w-full h-full flex-row items-center justify-center'>
+      <ul className='flex h-full flex-col w-full mr-10'>
+        {categories.map((category, index) => (
+          <li
+            className='flex w-full h-full flex-row shadow-xl rounded-xl items-center justify-between p-4 m-2'
+            key={index}
+            style={{ flex: "1" }}
+          >
+            <div>
+              <strong>Category Name:</strong> {category.categoryName}
+            </div>
+            <div>
+              <strong>Description:</strong> {category.categoryDescription}
+            </div>
+            <div>
+              <strong>Status:</strong> {category.categoryStatus}
+            </div>
+            <div>
+              <Image
+                src={category.categoryImage}
+                alt={category.categoryName}
+                title={category.categoryName}
+                width='40'
+                height='40'
+              />
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

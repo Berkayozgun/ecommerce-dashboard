@@ -1,107 +1,62 @@
-import Image from "next/image";
-const people = [
-  {
-    name: "Leslie Alexander",
-    email: "leslie.alexander@example.com",
-    role: "Co-Founder / CEO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
-  },
-  {
-    name: "Michael Foster",
-    email: "michael.foster@example.com",
-    role: "Co-Founder / CTO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
-  },
-  {
-    name: "Dries Vincent",
-    email: "dries.vincent@example.com",
-    role: "Business Relations",
-    imageUrl:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: null,
-  },
-  {
-    name: "Lindsay Walton",
-    email: "lindsay.walton@example.com",
-    role: "Front-end Developer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
-  },
-  {
-    name: "Courtney Henry",
-    email: "courtney.henry@example.com",
-    role: "Designer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
-  },
-  {
-    name: "Tom Cook",
-    email: "tom.cook@example.com",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: null,
-  },
-];
+import faker from "faker";
+import React from "react";
+
+const generateAdminData = () => {
+  const firstName = faker.name.firstName();
+  const lastName = faker.name.lastName();
+  const email = faker.internet.email();
+  const username = faker.internet.userName();
+  const avatar = faker.image.avatar();
+  const permissions = ["Yönetici", "Ürün Yönetimi", "Sipariş Yönetimi"]; // Yetki listesi
+
+  return {
+    id: faker.datatype.uuid(),
+    firstName,
+    lastName,
+    email,
+    username,
+    avatar,
+    permissions,
+  };
+};
+
+// Örnek yönetici verileri oluştur
+const adminData = Array.from({ length: 10 }, generateAdminData);
+
 export default function Page() {
   return (
-    <div className='flex w-full flex-row items-center justify-center'>
-      <div className='flex flex-col w-full max-w-md p-4 space-y-4 bg-white rounded-xl shadow-xl'>
-        Admin
-        <ul role='list' className='divide-y divide-gray-100 '>
-          {people.map((person) => (
-            <li
-              key={person.email}
-              className='flex justify-between gap-x-6 py-5'
-            >
-              <div className='flex min-w-0 gap-x-4'>
-                <Image
-                  className='h-12 w-12 flex-none rounded-full bg-gray-50'
-                  src={person.imageUrl}
-                  alt=''
-                  width={40}
-                  height={40}
-                />
-                <div className='min-w-0 flex-auto'>
-                  <p className='text-sm font-semibold leading-6 text-gray-900'>
-                    {person.name}
-                  </p>
-                  <p className='mt-1 truncate text-xs leading-5 text-gray-500'>
-                    {person.email}
-                  </p>
-                </div>
+    <div className='container mx-auto py-8'>
+      <h1 className='text-3xl font-bold mb-4'>Yönetici Listesi</h1>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+        {adminData.map((admin) => (
+          <div
+            key={admin.id}
+            className='bg-white shadow-md rounded-md p-4 flex flex-col justify-center items-center'
+          >
+            <img
+              src={admin.avatar}
+              alt={`${admin.firstName} ${admin.lastName}`}
+              className='w-16 h-16 rounded-full mb-2'
+            />
+            <div className='text-center'>
+              <h2 className='text-lg font-semibold'>
+                {admin.firstName} {admin.lastName}
+              </h2>
+              <p className='text-sm text-gray-500'>{admin.email}</p>
+              <p className='text-sm text-gray-500'>@{admin.username}</p>
+              <div className='mt-2'>
+                <p className='text-sm font-semibold'>Yetkiler:</p>
+                <ul className='list-disc list-inside'>
+                  {admin.permissions.map((permission, index) => (
+                    <li key={index} className='text-xs text-gray-500'>
+                      {permission}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className='hidden shrink-0 sm:flex sm:flex-col sm:items-end'>
-                <p className='text-sm leading-6 text-gray-900'>{person.role}</p>
-                {person.lastSeen ? (
-                  <p className='mt-1 text-xs leading-5 text-gray-500'>
-                    Last seen{" "}
-                    <time dateTime={person.lastSeenDateTime}>
-                      {person.lastSeen}
-                    </time>
-                  </p>
-                ) : (
-                  <div className='mt-1 flex items-center gap-x-1.5'>
-                    <div className='flex-none rounded-full bg-emerald-500/20 p-1'>
-                      <div className='h-1.5 w-1.5 rounded-full bg-emerald-500' />
-                    </div>
-                    <p className='text-xs leading-5 text-gray-500'>Online</p>
-                  </div>
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

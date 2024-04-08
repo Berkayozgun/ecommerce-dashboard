@@ -1,107 +1,107 @@
 import Image from "next/image";
-const people = [
+const coupons = [
   {
-    name: "Leslie Alexander",
-    email: "leslie.alexander@example.com",
-    role: "Co-Founder / CEO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
+    couponId: 1,
+    couponCode: "SAVE10",
+    couponType: "Percentage",
+    couponValue: 10,
+    couponMinAmount: 50,
+    couponMaxAmount: 1000,
+    couponStartDate: "2024-04-01",
+    couponEndDate: "2024-04-30",
+    couponStatus: "Active",
   },
   {
-    name: "Michael Foster",
-    email: "michael.foster@example.com",
-    role: "Co-Founder / CTO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
+    couponId: 2,
+    couponCode: "SAVE20",
+    couponType: "Percentage",
+    couponValue: 20,
+    couponMinAmount: 100,
+    couponMaxAmount: 500,
+    couponStartDate: "2024-04-01",
+    couponEndDate: "2024-04-30",
+    couponStatus: "Active",
   },
   {
-    name: "Dries Vincent",
-    email: "dries.vincent@example.com",
-    role: "Business Relations",
-    imageUrl:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: null,
+    couponId: 3,
+    couponCode: "SAVE30",
+    couponType: "Percentage",
+    couponValue: 30,
+    couponMinAmount: 150,
+    couponMaxAmount: 2000,
+    couponStartDate: "2024-04-01",
+    couponEndDate: "2024-04-30",
+    couponStatus: "Active",
   },
   {
-    name: "Lindsay Walton",
-    email: "lindsay.walton@example.com",
-    role: "Front-end Developer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
+    couponId: 4,
+    couponCode: "SAVE40",
+    couponType: "Percentage",
+    couponValue: 40,
+    couponMinAmount: 200,
+    couponMaxAmount: 1000,
+    couponStartDate: "2024-04-01",
+    couponEndDate: "2024-04-30",
+    couponStatus: "Active",
   },
   {
-    name: "Courtney Henry",
-    email: "courtney.henry@example.com",
-    role: "Designer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
-  },
-  {
-    name: "Tom Cook",
-    email: "tom.cook@example.com",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: null,
+    couponId: 5,
+    couponCode: "SAVE50",
+    couponType: "Percentage",
+    couponValue: 50,
+    couponMinAmount: 250,
+    couponMaxAmount: 1500,
+    couponStartDate: "2024-04-01",
+    couponEndDate: "2024-04-30",
+    couponStatus: "Active",
   },
 ];
+
 export default function Page() {
   return (
     <div className='flex w-full flex-row items-center justify-center'>
-      <div className='flex flex-col w-full max-w-md p-4 space-y-4 bg-white rounded-xl shadow-xl'>
-        coupons
-        <ul role='list' className='divide-y divide-gray-100 '>
-          {people.map((person) => (
-            <li
-              key={person.email}
-              className='flex justify-between gap-x-6 py-5'
-            >
-              <div className='flex min-w-0 gap-x-4'>
-                <Image
-                  className='h-12 w-12 flex-none rounded-full bg-gray-50'
-                  src={person.imageUrl}
-                  alt=''
-                  width={40}
-                  height={40}
-                />
-                <div className='min-w-0 flex-auto'>
-                  <p className='text-sm font-semibold leading-6 text-gray-900'>
-                    {person.name}
-                  </p>
-                  <p className='mt-1 truncate text-xs leading-5 text-gray-500'>
-                    {person.email}
-                  </p>
-                </div>
-              </div>
-              <div className='hidden shrink-0 sm:flex sm:flex-col sm:items-end'>
-                <p className='text-sm leading-6 text-gray-900'>{person.role}</p>
-                {person.lastSeen ? (
-                  <p className='mt-1 text-xs leading-5 text-gray-500'>
-                    Last seen{" "}
-                    <time dateTime={person.lastSeenDateTime}>
-                      {person.lastSeen}
-                    </time>
-                  </p>
-                ) : (
-                  <div className='mt-1 flex items-center gap-x-1.5'>
-                    <div className='flex-none rounded-full bg-emerald-500/20 p-1'>
-                      <div className='h-1.5 w-1.5 rounded-full bg-emerald-500' />
-                    </div>
-                    <p className='text-xs leading-5 text-gray-500'>Online</p>
-                  </div>
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
+      <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+        {coupons.map((coupon) => (
+          <div
+            key={coupon.couponId}
+            className='flex flex-col items-center justify-center p-4 space-y-4 bg-white rounded-lg shadow-lg'
+          >
+            <div className='flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full'>
+              <Image
+                src='https://www.svgrepo.com/show/303229/coupon.svg'
+                alt='Coupon'
+                width={96}
+                height={96}
+              />
+            </div>
+            <div className='flex flex-col items-center justify-center space-y-2'>
+              <p className='text-lg font-semibold text-gray-800'>
+                {coupon.couponCode}
+              </p>
+              <p className='text-sm font-normal text-gray-600'>
+                {coupon.couponType} Coupon
+              </p>
+              <p className='text-sm font-normal text-gray-600'>
+                Value: {coupon.couponValue}%
+              </p>
+              <p className='text-sm font-normal text-gray-600'>
+                Min Amount: ${coupon.couponMinAmount}
+              </p>
+              <p className='text-sm font-normal text-gray-600'>
+                Max Amount: ${coupon.couponMaxAmount}
+              </p>
+              <p className='text-sm font-normal text-gray-600'>
+                Start Date: {coupon.couponStartDate}
+              </p>
+              <p className='text-sm font-normal text-gray-600'>
+                End Date: {coupon.couponEndDate}
+              </p>
+              <p className='text-sm font-normal text-gray-600'>
+                Status: {coupon.couponStatus}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

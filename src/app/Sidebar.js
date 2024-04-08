@@ -74,7 +74,7 @@ const Sidebar = () => {
           >
             {" "}
             {couponIcon}
-            <div>Coupon Code</div>
+            <div>Coupon Codes</div>
           </div>
         </Link>
         <Link href='./categories'>

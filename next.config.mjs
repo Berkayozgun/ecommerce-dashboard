@@ -8,6 +8,7 @@ const nextConfig = {
       "images.unsplash.com",
       "upload.wikimedia.org",
       "cdn.fakercloud.com",
+      "i.imgur.com",
     ],
   },
 };
