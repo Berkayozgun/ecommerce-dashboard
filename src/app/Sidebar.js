@@ -12,7 +12,7 @@ import {
   addProductIcon,
   productListIcon,
   manageAdminIcon,
-  adminRolesIcon,
+  logsIcon,
 } from "./icons/SVGIcon";
 
 const Sidebar = () => {
@@ -150,15 +150,15 @@ const Sidebar = () => {
             <div>Manage Admins</div>
           </div>
         </Link>
-        <Link href='./adminroles'>
+        <Link href='./logpage'>
           <div
             role='button'
             tabIndex='0'
             className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
           >
             {" "}
-            {adminRolesIcon}
-            <div>Admin Roles</div>
+            {logsIcon}
+            <div>Logs</div>
           </div>
         </Link>
       </ul>
