@@ -17,7 +17,7 @@ import {
 
 const Sidebar = () => {
   return (
-    <div className='sticky top-0 flex flex-col rounded-xl bg-white text-gray-700 w-3/12 p-4 shadow-xl shadow-blue-gray-900/5'>
+    <div className='sticky top-0 flex flex-col rounded-xl bg-white text-gray-700 w-64 p-4 shadow-xl shadow-blue-gray-900/5'>
       <div className='flex flex-col sticky top-0'>
         <div className='flex flex-row items-center justify-center gap-4'>
           <Image

@@ -365,7 +365,7 @@ const logs = [
 export default function Page() {
   return (
     <div className='flex w-full h-full flex-row items-center justify-center'>
-      <div className='w-full h-full p-20'>
+      <div className='w-full'>
         <h1 className='text-3xl font-bold mb-4'>Logs</h1>
         <div className='overflow-x-auto'>
           <table className='w-full border-collapse border border-gray-300'>

@@ -44,26 +44,28 @@ const brands = [
 
 export default function Page() {
   return (
-    <div className='flex w-full flex-row items-center justify-center'>
-      {brands.map((brand) => (
-        <div
-          key={brand.name}
-          className='flex flex-col items-center justify-center p-4'
-        >
-          <Image
-            src={brand.imageUrl}
-            alt={brand.name}
-            width={100}
-            height={100}
-          />
-          <div className='text-lg font-semibold'>{brand.name}</div>
-          <div className='text-sm text-gray-500'>{brand.email}</div>
-          <div className='text-sm text-gray-500'>{brand.role}</div>
-          <div className='text-sm text-gray-500'>
-            Last Online :{brand.lastSeen}
+    <div className='flex w-full flex-col p-4'>
+      <h1 className='text-2xl font-bold mb-4'>Brands</h1>
+      <div className='flex flex-wrap justify-center gap-4'>
+        {brands.map((brand) => (
+          <div
+            key={brand.name}
+            className='flex flex-col items-center justify-center p-4 shadow-lg rounded-lg w-full sm:w-[48%] md:w-[31%] lg:w-[23%]'
+          >
+            <Image
+              src={brand.imageUrl}
+              alt={brand.name}
+              width={100}
+              height={100}
+            />
+            <div className='text-lg font-semibold'>{brand.name}</div>
+            <div className='text-sm text-gray-500'>{brand.email}</div>
+            <div className='text-sm text-gray-500'>
+              Last Online :{brand.lastSeen}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

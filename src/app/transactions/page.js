@@ -127,40 +127,42 @@ const TransactionsPage = () => {
   ]);
 
   return (
-    <div>
-      <h1>Transactions</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Date</th>
-            <th>Amount</th>
-            <th>Type</th>
-            <th>Status</th>
-            <th>Product</th>
-            <th>Buyer</th>
-            <th>Shipping Status</th>
-            <th>Tracking Number</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          {transactions.map((transaction) => (
-            <tr key={transaction.id}>
-              <td>{transaction.id}</td>
-              <td>{transaction.date}</td>
-              <td>{transaction.amount}</td>
-              <td>{transaction.type}</td>
-              <td>{transaction.status}</td>
-              <td>{transaction.product}</td>
-              <td>{transaction.buyer}</td>
-              <td>{transaction.shippingStatus}</td>
-              <td>{transaction.trackingNumber}</td>
-              <td>{transaction.notes}</td>
+    <div className='flex w-full flex-col p-4'>
+      <h1 className='text-2xl font-bold mb-4'>Transactions</h1>
+      <div className='overflow-x-auto'>
+        <table className='min-w-full bg-white border border-gray-200'>
+          <thead>
+            <tr>
+              <th className='py-2 px-4 border-b'>ID</th>
+              <th className='py-2 px-4 border-b'>Date</th>
+              <th className='py-2 px-4 border-b'>Amount</th>
+              <th className='py-2 px-4 border-b'>Type</th>
+              <th className='py-2 px-4 border-b'>Status</th>
+              <th className='py-2 px-4 border-b'>Product</th>
+              <th className='py-2 px-4 border-b'>Buyer</th>
+              <th className='py-2 px-4 border-b'>Shipping Status</th>
+              <th className='py-2 px-4 border-b'>Tracking Number</th>
+              <th className='py-2 px-4 border-b'>Notes</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {transactions.map((transaction) => (
+              <tr key={transaction.id} className='hover:bg-gray-50'>
+                <td className='py-2 px-4 border-b'>{transaction.id}</td>
+                <td className='py-2 px-4 border-b'>{transaction.date}</td>
+                <td className='py-2 px-4 border-b'>{transaction.amount}</td>
+                <td className='py-2 px-4 border-b'>{transaction.type}</td>
+                <td className='py-2 px-4 border-b'>{transaction.status}</td>
+                <td className='py-2 px-4 border-b'>{transaction.product}</td>
+                <td className='py-2 px-4 border-b'>{transaction.buyer}</td>
+                <td className='py-2 px-4 border-b'>{transaction.shippingStatus}</td>
+                <td className='py-2 px-4 border-b'>{transaction.trackingNumber}</td>
+                <td className='py-2 px-4 border-b'>{transaction.notes}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

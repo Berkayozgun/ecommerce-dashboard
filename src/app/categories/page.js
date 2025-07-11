@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 
 const categories = [
@@ -108,35 +109,34 @@ const categories = [
 ];
 export default function Page() {
   return (
-    <div className='flex w-full h-full flex-row items-center justify-center'>
-      <ul className='flex h-full flex-col w-full mr-10'>
+    <div className='flex w-full flex-col p-4 min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50'>
+      <h1 className='text-3xl font-extrabold text-indigo-700 mb-8 drop-shadow'>Categories</h1>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
         {categories.map((category, index) => (
-          <li
-            className='flex w-full h-full flex-row shadow-xl rounded-xl items-center justify-between p-4 m-2'
+          <div
             key={index}
-            style={{ flex: "1" }}
+            className='flex flex-col items-center bg-white shadow-xl rounded-2xl p-6 transition-transform hover:scale-105 border border-gray-100'
           >
-            <div>
-              <strong>Category Name:</strong> {category.categoryName}
+            <Image
+              src={category.categoryImage}
+              alt={category.categoryName}
+              title={category.categoryName}
+              width={70}
+              height={70}
+              className='rounded-full mb-4 border-4 border-indigo-100 shadow'
+            />
+            <div className='w-full text-center'>
+              <div className='font-bold text-lg text-gray-800 mb-1'>{category.categoryName}</div>
+              <div className='text-sm text-gray-500 mb-1'>{category.categoryDescription}</div>
+              <span className={`px-3 py-1 rounded-full text-xs font-bold shadow-md mt-2
+                ${category.categoryStatus === "Active" ? "bg-green-100 text-green-800 border border-green-300" : "bg-gray-100 text-gray-500 border border-gray-300"}
+              `}>
+                {category.categoryStatus}
+              </span>
             </div>
-            <div>
-              <strong>Description:</strong> {category.categoryDescription}
-            </div>
-            <div>
-              <strong>Status:</strong> {category.categoryStatus}
-            </div>
-            <div>
-              <Image
-                src={category.categoryImage}
-                alt={category.categoryName}
-                title={category.categoryName}
-                width='40'
-                height='40'
-              />
-            </div>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

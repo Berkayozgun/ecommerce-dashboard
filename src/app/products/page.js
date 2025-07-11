@@ -34,23 +34,26 @@ const products = [
 
 export default function Page() {
   return (
-    <div className='flex w-full flex-row items-center justify-center'>
-      {products.map((product) => (
-        <div
-          key={product.name}
-          className='flex flex-col items-center justify-center p-4'
-        >
-          <Image
-            src={product.imageUrl}
-            alt={product.name}
-            width={100}
-            height={100}
-          />
-          <div className='text-lg font-semibold'>{product.name}</div>
-          <div className='text-sm text-gray-500'>{product.price}</div>
-          <div className='text-sm text-gray-500'>{product.stock}</div>
-        </div>
-      ))}
+    <div className='flex w-full flex-col p-4'>
+      <h1 className='text-2xl font-bold mb-4'>Products</h1>
+      <div className='flex flex-wrap justify-center gap-4'>
+        {products.map((product) => (
+          <div
+            key={product.name}
+            className='flex flex-col items-center justify-center p-4 shadow-lg rounded-lg w-full sm:w-[48%] md:w-[31%] lg:w-[23%]'
+          >
+            <Image
+              src={product.imageUrl}
+              alt={product.name}
+              width={100}
+              height={100}
+            />
+            <div className='text-lg font-semibold'>{product.name}</div>
+            <div className='text-sm text-gray-500'>{product.price}</div>
+            <div className='text-sm text-gray-500'>{product.stock}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -43,7 +43,7 @@ export default function Page() {
         </div>
         <div>
           <label htmlFor='price' className='block font-medium text-gray-700'>
-            Fiyatı:
+            Price:
           </label>
           <input
             type='number'

@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (max-width: 768px) {
+  html {
+    flex-direction: column;
+  }
+
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: static;
+  }
+
+  .main-content {
+    width: 100%;
+  }
+}
+
+.statcard-up {
+  box-shadow: 0 0 16px 4px #22c55e55, 0 2px 8px #0001;
+  border-color: #22c55e;
+}
+
+.statcard-down {
+  box-shadow: 0 0 16px 4px #ef444455, 0 2px 8px #0001;
+  border-color: #ef4444;
+}
