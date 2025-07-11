@@ -1,58 +1,58 @@
 # E-commerce Dashboard
 
-Modern, çok sayfalı bir e-ticaret yönetim paneli. Next.js 15, React, TailwindCSS ve Webpack ile geliştirilmiştir. Gerçek zamanlı istatistikler, ürün, sipariş, müşteri, admin, kupon, kategori, marka, işlem ve kullanıcı yönetimi gibi temel modülleri içerir. Tüm sayfalar dark mode uyumludur.
+A modern, multi-page e-commerce admin panel built with Next.js 15, React, TailwindCSS, and Webpack. It features real-time statistics, product, order, customer, admin, coupon, category, brand, transaction, and user management modules. All pages are fully dark mode compatible.
 
-## Özellikler
-- **Dashboard:** Canlı istatistikler, sistem durumu, özet kartlar
-- **Ürün Yönetimi:** Ürün listeleme, filtreleme, ekleme
-- **Sipariş Yönetimi:** Sipariş listesi, durumlar
-- **Müşteri Yönetimi:** Müşteri listesi, detaylar
-- **Admin Yönetimi:** Admin kullanıcıları ve izinler
-- **Kupon Yönetimi:** Kupon oluşturma ve listeleme
-- **Kategori & Marka Yönetimi:** Kategori ve marka listeleri
-- **İşlem Geçmişi:** Finansal işlemler, loglar
-- **Kullanıcı Yönetimi:** Kullanıcı rolleri ve durumları
-- **Dark Mode:** Tüm sayfalarda tema desteği
-- **Sahte Veri:** Demo için mock JSON ve faker.js ile üretilmiş veriler
+## Features
+- **Dashboard:** Live statistics, system status, summary cards
+- **Product Management:** Product listing, filtering, and adding
+- **Order Management:** Order list and statuses
+- **Customer Management:** Customer list and details
+- **Admin Management:** Admin users and permissions
+- **Coupon Management:** Create and list coupons
+- **Category & Brand Management:** Category and brand lists
+- **Transaction History:** Financial transactions, logs
+- **User Management:** User roles and statuses
+- **Dark Mode:** Theme support on all pages
+- **Mock Data:** Demo data with mock JSON and faker.js
 
-## Kullanılan Teknolojiler
+## Tech Stack
 - Next.js 15
 - React 18
 - TailwindCSS
 - Webpack
-- Faker.js (mock veri için)
+- Faker.js (for mock data)
 
-## Kurulum ve Çalıştırma
+## Getting Started
 
 ```bash
 npm install
 npm run dev
 ```
 
-Tarayıcıda [http://localhost:3000](http://localhost:3000) adresini açın.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Modüller
-- `/dashboard` : Genel özet ve istatistikler
-- `/products` : Ürün listesi ve filtreleme
-- `/addproduct` : Yeni ürün ekleme
-- `/orders` : Siparişler
-- `/customers` : Müşteriler
-- `/admin` : Admin kullanıcıları
-- `/coupons` : Kuponlar
-- `/categories` : Kategoriler
-- `/brands` : Markalar
-- `/transactions` : Finansal işlemler
-- `/users` : Kullanıcılar
-- `/logpage` : Sistem logları
+## Modules
+- `/dashboard` : Overview and statistics
+- `/products` : Product list and filtering
+- `/addproduct` : Add new product
+- `/orders` : Orders
+- `/customers` : Customers
+- `/admin` : Admin users
+- `/coupons` : Coupons
+- `/categories` : Categories
+- `/brands` : Brands
+- `/transactions` : Financial transactions
+- `/users` : Users
+- `/logpage` : System logs
 
-## Notlar
-- Proje demo amaçlıdır, veriler mock olarak tutulur.
-- Tüm sayfalar responsive ve dark mode uyumludur.
-- Geliştirme için önerilen Node.js sürümü: 18+
+## Notes
+- This project is for demo purposes; all data is mock.
+- All pages are responsive and support dark mode.
+- Recommended Node.js version: 18+
 
 ---
 
-Aşağıdaki kısımlar Next.js'in orijinal README'sinden alınmıştır:
+The following sections are from the original Next.js README:
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
