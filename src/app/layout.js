@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "./Sidebar.js";
+import { ToastProvider } from "./components/ToastContext";
+import { ThemeProvider } from "./components/ThemeContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,13 +13,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en' className='flex w-full flex-row'>
-      <body className='flex w-full flex-row'>
-        {" "}
-        <Sidebar className='flex w-full sticky top-0' />
-        <div className='flex-1 overflow-y-auto'>
-          {children}
-        </div>
+    <html lang="en">
+      <body>
+        <ThemeProvider>
+          <ToastProvider>
+            <div className="flex w-full min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+              <Sidebar />
+              <main className="flex-1 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+                {children}
+              </main>
+            </div>
+          </ToastProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

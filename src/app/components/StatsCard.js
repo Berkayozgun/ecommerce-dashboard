@@ -59,11 +59,11 @@ const StatCard = ({ title, value, icon, extraContent, trend }) => {
   }, [numericValue]);
 
   return (
-    <div className={`flex flex-col flex-1 min-w-[220px] max-w-xs shadow-2xl h-36 rounded-2xl border border-gray-100 bg-white p-6 justify-between gap-4 transition-all duration-300 ${effect}`}>
+    <div className={`flex flex-col flex-1 min-w-[220px] max-w-xs shadow-2xl h-36 rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-800 p-6 justify-between gap-4 transition-all duration-300 ${effect}`}>
       <div className='flex items-center justify-between'>
         <div>
-          <p className='text-sm text-gray-500'>{title}</p>
-          <p className='text-2xl font-medium text-gray-900'>
+          <p className='text-sm text-gray-500 dark:text-gray-300'>{title}</p>
+          <p className='text-2xl font-medium text-gray-900 dark:text-gray-100'>
             {typeof numericValue === "number" ? (
               <>
                 {prefix}
@@ -81,7 +81,7 @@ const StatCard = ({ title, value, icon, extraContent, trend }) => {
         {risingGreen}
         <p className='flex gap-2 text-xs'>
           <span className='font-medium'> 8.51% </span>
-          <span className='text-gray-500'> Since last week </span>
+          <span className='text-gray-500 dark:text-gray-300'> Since last week </span>
         </p>
       </div>
       {extraContent && <div>{extraContent}</div>}

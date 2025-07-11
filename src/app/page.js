@@ -58,12 +58,12 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 flex flex-col items-center justify-start p-8">
+    <div className="min-h-screen w-full bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex flex-col items-center justify-start p-8">
       <div className="w-full max-w-5xl">
         <div className="flex flex-col items-center mb-8">
           <span className="mb-2">{dashboardIcon}</span>
-          <h1 className="text-4xl font-extrabold text-indigo-700 mb-2 drop-shadow">E-commerce Dashboard</h1>
-          <p className="text-lg text-gray-600">Welcome! Here is your system's current status and summary statistics.</p>
+          <h1 className="text-4xl font-extrabold text-indigo-700 dark:text-yellow-300 mb-2 drop-shadow">E-commerce Dashboard</h1>
+          <p className="text-lg text-gray-600 dark:text-gray-300">Welcome! Here is your system's current status and summary statistics.</p>
         </div>
         {/* Statistic Cards */}
         <div className="flex flex-nowrap gap-6 justify-center mb-16 overflow-x-auto w-full h-44">
@@ -73,8 +73,8 @@ export default function Home() {
           <StatCard title="Daily Page Visitors" value={stats.visitors} icon={totalUserIcon} trend={trends.visitors} />
         </div>
         {/* System Status */}
-        <div className="bg-white/80 rounded-2xl shadow-lg p-6 mb-8">
-          <h2 className="text-2xl font-bold text-indigo-600 mb-4 flex items-center gap-2">{bellIcon} System Status</h2>
+        <div className="bg-white/80 dark:bg-gray-800/80 rounded-2xl shadow-lg p-6 mb-8">
+          <h2 className="text-2xl font-bold text-indigo-600 dark:text-yellow-300 mb-4 flex items-center gap-2">{bellIcon} System Status</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <StatusItem label="Server" status="Online" icon={dashboardIcon} />
             <StatusItem label="Customer Support" status="Online" icon={customersIcon} />
@@ -93,12 +93,12 @@ export default function Home() {
 
 function StatusItem({ label, status, icon }) {
   return (
-    <div className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-indigo-100 to-purple-100 shadow">
+    <div className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-gray-800 dark:to-gray-900 shadow">
       <span className="w-6 h-6 flex items-center justify-center">{icon}</span>
-      <span className="font-medium text-gray-700 flex-1">{label}</span>
+      <span className="font-medium text-gray-700 dark:text-gray-200 flex-1">{label}</span>
       <span
         className={`text-white px-2 py-1 rounded-md text-sm font-semibold ${
-          status === "Online" ? "bg-green-500" : "bg-red-500"
+          status === "Online" ? "bg-green-500 dark:bg-green-700" : "bg-red-500 dark:bg-red-700" 
         }`}
       >
         {status}

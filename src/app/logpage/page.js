@@ -1,4 +1,5 @@
-import Image from "next/image";
+"use client"
+import { useState } from "react";
 
 const logs = [
   {
@@ -363,77 +364,181 @@ const logs = [
 ];
 
 export default function Page() {
+  const [userType, setUserType] = useState("");
+  const [actionType, setActionType] = useState("");
+  const [paymentStatus, setPaymentStatus] = useState("");
+  const [search, setSearch] = useState("");
+  const [dateFrom, setDateFrom] = useState("");
+  const [dateTo, setDateTo] = useState("");
+
+  // Log tipi için ikon ve renk seçimi
+  const getIcon = (action) => {
+    switch (action) {
+      case "Purchase":
+        return <span className="text-green-500">🛒</span>;
+      case "Return":
+        return <span className="text-yellow-500">↩️</span>;
+      case "Login":
+        return <span className="text-blue-500">🔑</span>;
+      case "Logout":
+        return <span className="text-gray-400">🚪</span>;
+      case "Add Product":
+        return <span className="text-indigo-500">➕</span>;
+      case "Delete Product":
+        return <span className="text-red-500">🗑️</span>;
+      default:
+        return <span className="text-gray-400">•</span>;
+    }
+  };
+
+  // Log satırı için özet cümle
+  const getSummary = (log) => {
+    if (log.Action_Type === "Purchase") {
+      return (
+        <span>
+          <span className="font-bold text-indigo-700">User {log.User_ID}</span> purchased <span className="font-bold text-green-700">{log.Quantity}x {log.Product_Name}</span> for <span className="font-bold text-green-700">${log.Total_Price}</span> [{log.Payment_Method}]
+        </span>
+      );
+    }
+    if (log.Action_Type === "Return") {
+      return (
+        <span>
+          <span className="font-bold text-indigo-700">User {log.User_ID}</span> returned <span className="font-bold text-yellow-700">{log.Quantity}x {log.Product_Name}</span> [Refunded <span className="font-bold text-red-700">${Math.abs(log.Total_Price)}</span>]
+        </span>
+      );
+    }
+    if (log.Action_Type === "Login") {
+      return (
+        <span><span className="font-bold text-indigo-700">{log.User_ID}</span> logged in</span>
+      );
+    }
+    if (log.Action_Type === "Logout") {
+      return (
+        <span><span className="font-bold text-indigo-700">{log.User_ID}</span> logged out</span>
+      );
+    }
+    if (log.Action_Type === "Add Product") {
+      return (
+        <span><span className="font-bold text-indigo-700">{log.User_ID}</span> added product <span className="font-bold text-indigo-700">{log.Product_Name}</span> (${log.Unit_Price})</span>
+      );
+    }
+    if (log.Action_Type === "Delete Product") {
+      return (
+        <span><span className="font-bold text-indigo-700">{log.User_ID}</span> deleted product <span className="font-bold text-red-700">{log.Product_Name}</span></span>
+      );
+    }
+    return <span>{log.Action_Type}</span>;
+  };
+
+  // Filtrelenmiş loglar
+  const filteredLogs = logs.filter((log) => {
+    if (userType && log.User_Type !== userType) return false;
+    if (actionType && log.Action_Type !== actionType) return false;
+    if (paymentStatus && log.Payment_Status !== paymentStatus) return false;
+    if (search) {
+      const s = search.toLowerCase();
+      if (!(
+        (log.User_ID && log.User_ID.toLowerCase().includes(s)) ||
+        (log.Product_Name && log.Product_Name.toLowerCase().includes(s)) ||
+        (log.Action_Type && log.Action_Type.toLowerCase().includes(s))
+      )) return false;
+    }
+    if (dateFrom && log.Timestamp < dateFrom) return false;
+    if (dateTo && log.Timestamp > dateTo) return false;
+    return true;
+  });
+
+  // Unique values for dropdowns
+  const userTypes = Array.from(new Set(logs.map(l => l.User_Type).filter(Boolean)));
+  const actionTypes = Array.from(new Set(logs.map(l => l.Action_Type).filter(Boolean)));
+  const paymentStatuses = Array.from(new Set(logs.map(l => l.Payment_Status).filter(Boolean)));
+
   return (
-    <div className='flex w-full h-full flex-row items-center justify-center'>
-      <div className='w-full'>
-        <h1 className='text-3xl font-bold mb-4'>Logs</h1>
-        <div className='overflow-x-auto'>
-          <table className='w-full border-collapse border border-gray-300'>
-            <thead>
-              <tr className='bg-gray-100'>
-                <th className='border border-gray-300 px-4 py-2'>Timestamp</th>
-                <th className='border border-gray-300 px-4 py-2'>User ID</th>
-                <th className='border border-gray-300 px-4 py-2'>User Type</th>
-                <th className='border border-gray-300 px-4 py-2'>
-                  Action Type
-                </th>
-                <th className='border border-gray-300 px-4 py-2'>Product ID</th>
-                <th className='border border-gray-300 px-4 py-2'>
-                  Product Name
-                </th>
-                <th className='border border-gray-300 px-4 py-2'>Quantity</th>
-                <th className='border border-gray-300 px-4 py-2'>Unit Price</th>
-                <th className='border border-gray-300 px-4 py-2'>
-                  Total Price
-                </th>
-                <th className='border border-gray-300 px-4 py-2'>
-                  Payment Method
-                </th>
-                <th className='border border-gray-300 px-4 py-2'>
-                  Payment Status
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {logs.map((log, index) => (
-                <tr key={index} className='text-center'>
-                  <td className='border border-gray-300 px-4 py-2'>
+    <div className="flex w-full flex-col p-4 min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <h1 className="text-3xl font-extrabold text-indigo-700 dark:text-yellow-300 mb-8 drop-shadow">Logs</h1>
+      {/* Filtre Paneli */}
+      <div className="flex flex-wrap gap-4 mb-6 items-end bg-white/80 dark:bg-gray-900/80 rounded-xl p-4 shadow border border-gray-100 dark:border-gray-800">
+        <div>
+          <label className="block text-xs font-bold text-gray-500 dark:text-gray-300 mb-1">User Type</label>
+          <select value={userType} onChange={e => setUserType(e.target.value)} className="border rounded px-2 py-1 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-200 dark:border-gray-700">
+            <option value="">All</option>
+            {userTypes.map(type => <option key={type} value={type}>{type}</option>)}
+          </select>
+        </div>
+        <div>
+          <label className="block text-xs font-bold text-gray-500 dark:text-gray-300 mb-1">Action Type</label>
+          <select value={actionType} onChange={e => setActionType(e.target.value)} className="border rounded px-2 py-1 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-200 dark:border-gray-700">
+            <option value="">All</option>
+            {actionTypes.map(type => <option key={type} value={type}>{type}</option>)}
+          </select>
+        </div>
+        <div>
+          <label className="block text-xs font-bold text-gray-500 dark:text-gray-300 mb-1">Payment Status</label>
+          <select value={paymentStatus} onChange={e => setPaymentStatus(e.target.value)} className="border rounded px-2 py-1 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-200 dark:border-gray-700">
+            <option value="">All</option>
+            {paymentStatuses.map(status => <option key={status} value={status}>{status}</option>)}
+          </select>
+        </div>
+        <div>
+          <label className="block text-xs font-bold text-gray-500 dark:text-gray-300 mb-1">Date From</label>
+          <input type="datetime-local" value={dateFrom} onChange={e => setDateFrom(e.target.value)} className="border rounded px-2 py-1 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-200 dark:border-gray-700" />
+        </div>
+        <div>
+          <label className="block text-xs font-bold text-gray-500 dark:text-gray-300 mb-1">Date To</label>
+          <input type="datetime-local" value={dateTo} onChange={e => setDateTo(e.target.value)} className="border rounded px-2 py-1 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-200 dark:border-gray-700" />
+        </div>
+        <div className="flex-1 min-w-[180px]">
+          <label className="block text-xs font-bold text-gray-500 dark:text-gray-300 mb-1">Search</label>
+          <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="User, product, action..." className="border rounded px-2 py-1 text-sm w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-200 dark:border-gray-700" />
+        </div>
+        <button onClick={() => { setUserType(""); setActionType(""); setPaymentStatus(""); setDateFrom(""); setDateTo(""); setSearch(""); }} className="ml-auto px-3 py-1 rounded bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs font-bold border border-gray-200 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 transition">Reset</button>
+      </div>
+      <div className="overflow-x-auto">
+        <div className="rounded-2xl shadow-2xl bg-white dark:bg-gray-900">
+          <div className="sticky top-0 z-10 bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-3 flex items-center gap-4">
+            <span className="text-xs font-mono text-gray-400 dark:text-gray-500 tracking-widest">TIMESTAMP</span>
+            <span className="text-xs font-mono text-gray-400 dark:text-gray-500 tracking-widest">LOG</span>
+            <span className="text-xs font-mono text-gray-400 dark:text-gray-500 tracking-widest ml-auto">STATUS</span>
+          </div>
+          <ul className="divide-y divide-gray-100 dark:divide-gray-800 font-mono text-[13px]">
+            {filteredLogs.length === 0 ? (
+              <li className="px-6 py-8 text-center text-gray-400 dark:text-gray-600">No logs found.</li>
+            ) : (
+              filteredLogs.map((log, index) => (
+                <li
+                  key={index}
+                  className="flex items-center gap-4 px-6 py-2 hover:bg-indigo-50 dark:hover:bg-gray-800 transition group border-l-4 border-transparent hover:border-indigo-400 dark:hover:border-yellow-300"
+                >
+                  <span className="w-32 text-xs text-gray-500 dark:text-gray-300 tabular-nums select-all">
                     {log.Timestamp}
-                  </td>
-                  <td className='border border-gray-300 px-4 py-2'>
-                    {log.User_ID}
-                  </td>
-                  <td className='border border-gray-300 px-4 py-2'>
-                    {log.User_Type}
-                  </td>
-                  <td className='border border-gray-300 px-4 py-2'>
-                    {log.Action_Type}
-                  </td>
-                  <td className='border border-gray-300 px-4 py-2'>
-                    {log.Product_ID}
-                  </td>
-                  <td className='border border-gray-300 px-4 py-2'>
-                    {log.Product_Name}
-                  </td>
-                  <td className='border border-gray-300 px-4 py-2'>
-                    {log.Quantity}
-                  </td>
-                  <td className='border border-gray-300 px-4 py-2'>
-                    {log.Unit_Price}
-                  </td>
-                  <td className='border border-gray-300 px-4 py-2'>
-                    {log.Total_Price}
-                  </td>
-                  <td className='border border-gray-300 px-4 py-2'>
-                    {log.Payment_Method}
-                  </td>
-                  <td className='border border-gray-300 px-4 py-2'>
-                    {log.Payment_Status}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                  </span>
+                  <span className="w-6 flex-shrink-0 flex items-center justify-center text-lg">
+                    {getIcon(log.Action_Type)}
+                  </span>
+                  <span className="flex-1 text-gray-800 dark:text-gray-100 group-hover:text-indigo-700 dark:group-hover:text-yellow-300">
+                    {getSummary(log)}
+                  </span>
+                  <span className="ml-auto">
+                    {log.Payment_Status ? (
+                      <span className={`px-3 py-1 rounded-full text-xs font-bold shadow-md border mt-2 transition
+                        ${log.Payment_Status === "Successful"
+                          ? "bg-green-100 text-green-800 border-green-300 dark:bg-green-900 dark:text-green-200 dark:border-green-700"
+                          : log.Payment_Status === "Refunded"
+                          ? "bg-red-100 text-red-800 border-red-300 dark:bg-red-900 dark:text-red-200 dark:border-red-700"
+                          : log.Payment_Status === "Pending"
+                          ? "bg-yellow-100 text-yellow-800 border-yellow-300 dark:bg-yellow-900 dark:text-yellow-200 dark:border-yellow-700"
+                          : "bg-gray-100 text-gray-500 border-gray-300 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"}
+                      `}>
+                        {log.Payment_Status}
+                      </span>
+                    ) : (
+                      <span className="text-gray-300 dark:text-gray-700">-</span>
+                    )}
+                  </span>
+                </li>
+              ))
+            )}
+          </ul>
         </div>
       </div>
     </div>

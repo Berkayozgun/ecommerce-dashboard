@@ -1,141 +1,162 @@
 "use client";
-import Image from "next/image";
+import { useState } from "react";
 
-const categories = [
+const initialCategories = [
   {
-    categoryId: 1,
-    categoryName: "Electronics",
-    categoryDescription: "Electronics and Gadgets",
-    categoryImage: "https://i.pravatar.cc/150?u=Electronics",
-    categoryStatus: "Active",
+    id: 1,
+    name: "Electronics",
+    description: "Electronics and Gadgets",
+    image: "https://i.pravatar.cc/150?u=Electronics",
+    status: "Active",
   },
   {
-    categoryId: 2,
-    categoryName: "Clothing",
-    categoryDescription: "Clothing and Accessories",
-    categoryImage: "https://i.pravatar.cc/150?u=Clothing",
-    categoryStatus: "Active",
+    id: 2,
+    name: "Clothing",
+    description: "Clothing and Accessories",
+    image: "https://i.pravatar.cc/150?u=Clothing",
+    status: "Active",
   },
   {
-    categoryId: 3,
-    categoryName: "Books",
-    categoryDescription: "Books and Stationary",
-    categoryImage: "https://i.pravatar.cc/150?u=Books",
-    categoryStatus: "Active",
+    id: 3,
+    name: "Books",
+    description: "Books and Stationary",
+    image: "https://i.pravatar.cc/150?u=Books",
+    status: "Active",
   },
   {
-    categoryId: 4,
-    categoryName: "Furniture",
-    categoryDescription: "Furniture and Home Decor",
-    categoryImage: "https://i.pravatar.cc/150?u=Furniture",
-    categoryStatus: "Active",
+    id: 4,
+    name: "Furniture",
+    description: "Furniture and Home Decor",
+    image: "https://i.pravatar.cc/150?u=Furniture",
+    status: "Active",
   },
   {
-    categoryId: 5,
-    categoryName: "Grocery",
-    categoryDescription: "Grocery and Staples",
-    categoryImage: "https://i.pravatar.cc/150?u=Grocery",
-    categoryStatus: "Active",
+    id: 5,
+    name: "Grocery",
+    description: "Grocery and Staples",
+    image: "https://i.pravatar.cc/150?u=Grocery",
+    status: "Active",
   },
   {
-    categoryId: 6,
-    categoryName: "Sports",
-    categoryDescription: "Sports and Fitness",
-    categoryImage: "https://i.pravatar.cc/150?u=Sports",
-    categoryStatus: "Active",
+    id: 6,
+    name: "Sports",
+    description: "Sports and Fitness",
+    image: "https://i.pravatar.cc/150?u=Sports",
+    status: "Active",
   },
   {
-    categoryId: 7,
-    categoryName: "Toys",
-    categoryDescription: "Toys and Games",
-    categoryImage: "https://i.pravatar.cc/150?u=Toys",
-    categoryStatus: "Active",
+    id: 7,
+    name: "Toys",
+    description: "Toys and Games",
+    image: "https://i.pravatar.cc/150?u=Toys",
+    status: "Active",
   },
   {
-    categoryId: 8,
-    categoryName: "Automobile",
-    categoryDescription: "Automobile and Accessories",
-    categoryImage: "https://i.pravatar.cc/150?u=Automobile",
-    categoryStatus: "Active",
+    id: 8,
+    name: "Automobile",
+    description: "Automobile and Accessories",
+    image: "https://i.pravatar.cc/150?u=Automobile",
+    status: "Active",
   },
   {
-    categoryId: 9,
-    categoryName: "Beauty",
-    categoryDescription: "Beauty and Personal Care",
-    categoryImage: "https://i.pravatar.cc/150?u=Beauty",
-    categoryStatus: "Active",
+    id: 9,
+    name: "Beauty",
+    description: "Beauty and Personal Care",
+    image: "https://i.pravatar.cc/150?u=Beauty",
+    status: "Active",
   },
   {
-    categoryId: 10,
-    categoryName: "Health",
-    categoryDescription: "Health and Wellness",
-    categoryImage: "https://i.pravatar.cc/150?u=Health",
-    categoryStatus: "Active",
+    id: 10,
+    name: "Health",
+    description: "Health and Wellness",
+    image: "https://i.pravatar.cc/150?u=Health",
+    status: "Active",
   },
   {
-    categoryId: 11,
-    categoryName: "Jewellery",
-    categoryDescription: "Jewellery and Accessories",
-    categoryImage: "https://i.pravatar.cc/150?u=Jewellery",
-    categoryStatus: "Active",
+    id: 11,
+    name: "Jewellery",
+    description: "Jewellery and Accessories",
+    image: "https://i.pravatar.cc/150?u=Jewellery",
+    status: "Active",
   },
   {
-    categoryId: 12,
-    categoryName: "Pets",
-    categoryDescription: "Pets and Accessories",
-    categoryImage: "https://i.pravatar.cc/150?u=Pets",
-    categoryStatus: "Active",
+    id: 12,
+    name: "Pets",
+    description: "Pets and Accessories",
+    image: "https://i.pravatar.cc/150?u=Pets",
+    status: "Active",
   },
   {
-    categoryId: 13,
-    categoryName: "Tools",
-    categoryDescription: "Tools and Hardware",
-    categoryImage: "https://i.pravatar.cc/150?u=Tools",
-    categoryStatus: "Active",
+    id: 13,
+    name: "Tools",
+    description: "Tools and Hardware",
+    image: "https://i.pravatar.cc/150?u=Tools",
+    status: "Active",
   },
   {
-    categoryId: 14,
-    categoryName: "Travel",
-    categoryDescription: "Travel and Luggage",
-    categoryImage: "https://i.pravatar.cc/150?u=Travel",
-    categoryStatus: "Active",
+    id: 14,
+    name: "Travel",
+    description: "Travel and Luggage",
+    image: "https://i.pravatar.cc/150?u=Travel",
+    status: "Active",
   },
   {
-    categoryId: 15,
-    categoryName: "Watches",
-    categoryDescription: "Watches and Accessories",
-    categoryImage: "https://i.pravatar.cc/150?u=Watches",
+    id: 15,
+    name: "Watches",
+    description: "Watches and Accessories",
+    image: "https://i.pravatar.cc/150?u=Watches",
+    status: "Inactive",
   },
 ];
-export default function Page() {
+
+function ActionButtons() {
   return (
-    <div className='flex w-full flex-col p-4 min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50'>
-      <h1 className='text-3xl font-extrabold text-indigo-700 mb-8 drop-shadow'>Categories</h1>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-        {categories.map((category, index) => (
-          <div
-            key={index}
-            className='flex flex-col items-center bg-white shadow-xl rounded-2xl p-6 transition-transform hover:scale-105 border border-gray-100'
-          >
-            <Image
-              src={category.categoryImage}
-              alt={category.categoryName}
-              title={category.categoryName}
-              width={70}
-              height={70}
-              className='rounded-full mb-4 border-4 border-indigo-100 shadow'
-            />
-            <div className='w-full text-center'>
-              <div className='font-bold text-lg text-gray-800 mb-1'>{category.categoryName}</div>
-              <div className='text-sm text-gray-500 mb-1'>{category.categoryDescription}</div>
-              <span className={`px-3 py-1 rounded-full text-xs font-bold shadow-md mt-2
-                ${category.categoryStatus === "Active" ? "bg-green-100 text-green-800 border border-green-300" : "bg-gray-100 text-gray-500 border border-gray-300"}
-              `}>
-                {category.categoryStatus}
-              </span>
-            </div>
-          </div>
-        ))}
+    <div className="flex gap-2">
+      <button className="px-2 py-1 text-xs rounded bg-indigo-100 text-indigo-700 font-bold hover:bg-indigo-200 transition">Edit</button>
+      <button className="px-2 py-1 text-xs rounded bg-red-100 text-red-700 font-bold hover:bg-red-200 transition">Delete</button>
+      <button className="px-2 py-1 text-xs rounded bg-gray-100 text-gray-700 font-bold hover:bg-gray-200 transition">Details</button>
+    </div>
+  );
+}
+
+export default function Page() {
+  const [categories] = useState(initialCategories);
+
+  return (
+    <div className="flex w-full flex-col p-4 min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <h1 className="text-3xl font-extrabold text-indigo-700 dark:text-yellow-300 mb-8 drop-shadow">Categories</h1>
+      <div className="overflow-x-auto">
+        <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-800 rounded-2xl shadow-2xl bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+          <thead className="bg-gray-100 dark:bg-gray-800">
+            <tr>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Image</th>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Name</th>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Description</th>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Status</th>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-800">
+            {categories.map((cat) => (
+              <tr key={cat.id} className="hover:bg-indigo-50 dark:hover:bg-gray-800 transition">
+                <td className="px-4 py-3 whitespace-nowrap">
+                  <img src={cat.imageUrl} alt={cat.name} width={40} height={40} className="rounded border shadow" />
+                </td>
+                <td className="px-4 py-3 whitespace-nowrap text-sm font-bold text-indigo-700 dark:text-yellow-300">{cat.name}</td>
+                <td className="px-4 py-3 whitespace-nowrap text-xs text-gray-500 dark:text-gray-300">{cat.description}</td>
+                <td className="px-4 py-3 whitespace-nowrap text-xs">
+                  <span className={`px-3 py-1 rounded-full text-xs font-bold shadow-md border mt-2 transition ${cat.status === "Active" ? "bg-green-100 text-green-800 border-green-300 dark:bg-green-800 dark:text-white dark:border-green-900" : "bg-gray-100 text-gray-500 border-gray-300 dark:bg-gray-800 dark:text-white dark:border-gray-900"}`}>{cat.status}</span>
+                </td>
+                <td className="px-4 py-3 whitespace-nowrap">
+                  <div className="flex gap-2">
+                    <button className="px-2 py-1 text-xs rounded bg-indigo-100 text-indigo-700 font-bold hover:bg-indigo-200 transition dark:bg-indigo-800 dark:text-yellow-300 dark:hover:bg-indigo-900 border border-indigo-200 dark:border-indigo-900">Edit</button>
+                    <button className="px-2 py-1 text-xs rounded bg-red-100 text-red-700 font-bold hover:bg-red-200 transition dark:bg-red-800 dark:text-red-200 dark:hover:bg-red-900 border border-red-200 dark:border-red-900">Delete</button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

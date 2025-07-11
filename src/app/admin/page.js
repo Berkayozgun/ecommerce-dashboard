@@ -1,6 +1,11 @@
+"use client";
+
 import faker from "faker";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import StatusBadge from "../components/StatusBadge";
+import ActionButtons from "../components/ActionButtons";
+import TableRow from "../components/TableRow";
 
 const generateAdminData = () => {
   const firstName = faker.name.firstName();
@@ -8,8 +13,19 @@ const generateAdminData = () => {
   const email = faker.internet.email();
   const username = faker.internet.userName();
   const avatar = faker.image.avatar();
-  const permissions = ["Yönetici", "Ürün Yönetimi", "Sipariş Yönetimi"]; // Yetki listesi
-
+  const permissions = faker.random.arrayElements([
+    "Dashboard",
+    "Product Management",
+    "Order Management",
+    "User Management",
+    "Brand Management",
+    "Category Management",
+    "Coupon Management",
+    "Analytics",
+    "Settings",
+  ], faker.datatype.number({ min: 2, max: 4 }));
+  const status = faker.random.arrayElement(["Active", "Inactive"]);
+  const lastSeen = faker.date.recent(30);
   return {
     id: faker.datatype.uuid(),
     firstName,
@@ -18,48 +34,80 @@ const generateAdminData = () => {
     username,
     avatar,
     permissions,
+    status,
+    lastSeen,
   };
 };
 
-// Örnek yönetici verileri oluştur
-const adminData = Array.from({ length: 10 }, generateAdminData);
-
 export default function Page() {
+  const [adminData, setAdminData] = useState([]);
+  const [avatarUrls, setAvatarUrls] = useState([]);
+
+  useEffect(() => {
+    const data = Array.from({ length: 12 }, generateAdminData);
+    setAdminData(data);
+    setAvatarUrls(data.map(a => a.avatar));
+  }, []);
+
+  const handleImgError = (idx) => {
+    setAvatarUrls(prev => {
+      const updated = [...prev];
+      updated[idx] = 'https://i.pravatar.cc/150?u=defaultadmin';
+      return updated;
+    });
+  };
+
   return (
-    <div className='flex w-full flex-col p-4'>
-      <h1 className='text-2xl font-bold mb-4'>Admin List</h1>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-        {adminData.map((admin) => (
-          <div
-            key={admin.id}
-            className='bg-white shadow-md rounded-md p-4 flex flex-col justify-center items-center'
-          >
-            <Image
-              src={admin.avatar}
-              alt={`${admin.firstName} ${admin.lastName}`}
-              width={64}
-              height={64}
-              className='w-16 h-16 rounded-full mb-2'
-            />
-            <div className='text-center'>
-              <h2 className='text-lg font-semibold'>
-                {admin.firstName} {admin.lastName}
-              </h2>
-              <p className='text-sm text-gray-500'>{admin.email}</p>
-              <p className='text-sm text-gray-500'>@{admin.username}</p>
-              <div className='mt-2'>
-                <p className='text-sm font-semibold'>Yetkiler:</p>
-                <ul className='list-disc list-inside'>
-                  {admin.permissions.map((permission, index) => (
-                    <li key={index} className='text-xs text-gray-500'>
-                      {permission}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        ))}
+    <div className="flex w-full flex-col p-4 min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <h1 className="text-3xl font-extrabold text-indigo-700 dark:text-yellow-300 mb-8 drop-shadow">Admins</h1>
+      <div className="overflow-x-auto">
+        <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-800 rounded-2xl shadow-2xl bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+          <thead className="bg-gray-100 dark:bg-gray-800">
+            <tr>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Avatar</th>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Name</th>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Email</th>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Username</th>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Permissions</th>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Status</th>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Last Seen</th>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-800">
+            {adminData.map((admin, idx) => (
+              <TableRow key={admin.id}>
+                <td className="px-4 py-3 whitespace-nowrap">
+                  <img
+                    src={avatarUrls[idx]}
+                    alt={`${admin.firstName} ${admin.lastName}`}
+                    width={40}
+                    height={40}
+                    className="rounded-full border shadow bg-white dark:bg-gray-800"
+                    onError={() => handleImgError(idx)}
+                  />
+                </td>
+                <td className="px-4 py-3 whitespace-nowrap text-sm font-bold text-indigo-700 dark:text-yellow-300">{admin.firstName} {admin.lastName}</td>
+                <td className="px-4 py-3 whitespace-nowrap text-xs text-gray-500 dark:text-gray-300">{admin.email}</td>
+                <td className="px-4 py-3 whitespace-nowrap text-xs text-gray-500 dark:text-gray-300">@{admin.username}</td>
+                <td className="px-4 py-3 whitespace-nowrap text-xs text-gray-500 dark:text-gray-300">
+                  <ul className="list-disc list-inside">
+                    {admin.permissions.map((perm, idx2) => (
+                      <li key={idx2}>{perm}</li>
+                    ))}
+                  </ul>
+                </td>
+                <td className="px-4 py-3 whitespace-nowrap text-xs">
+                  <StatusBadge status={admin.status} />
+                </td>
+                <td className="px-4 py-3 whitespace-nowrap text-xs text-gray-400 dark:text-gray-200">{admin.lastSeen.toLocaleDateString()}</td>
+                <td className="px-4 py-3 whitespace-nowrap">
+                  <ActionButtons />
+                </td>
+              </TableRow>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

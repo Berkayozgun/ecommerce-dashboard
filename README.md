@@ -1,3 +1,59 @@
+# E-commerce Dashboard
+
+Modern, çok sayfalı bir e-ticaret yönetim paneli. Next.js 15, React, TailwindCSS ve Webpack ile geliştirilmiştir. Gerçek zamanlı istatistikler, ürün, sipariş, müşteri, admin, kupon, kategori, marka, işlem ve kullanıcı yönetimi gibi temel modülleri içerir. Tüm sayfalar dark mode uyumludur.
+
+## Özellikler
+- **Dashboard:** Canlı istatistikler, sistem durumu, özet kartlar
+- **Ürün Yönetimi:** Ürün listeleme, filtreleme, ekleme
+- **Sipariş Yönetimi:** Sipariş listesi, durumlar
+- **Müşteri Yönetimi:** Müşteri listesi, detaylar
+- **Admin Yönetimi:** Admin kullanıcıları ve izinler
+- **Kupon Yönetimi:** Kupon oluşturma ve listeleme
+- **Kategori & Marka Yönetimi:** Kategori ve marka listeleri
+- **İşlem Geçmişi:** Finansal işlemler, loglar
+- **Kullanıcı Yönetimi:** Kullanıcı rolleri ve durumları
+- **Dark Mode:** Tüm sayfalarda tema desteği
+- **Sahte Veri:** Demo için mock JSON ve faker.js ile üretilmiş veriler
+
+## Kullanılan Teknolojiler
+- Next.js 15
+- React 18
+- TailwindCSS
+- Webpack
+- Faker.js (mock veri için)
+
+## Kurulum ve Çalıştırma
+
+```bash
+npm install
+npm run dev
+```
+
+Tarayıcıda [http://localhost:3000](http://localhost:3000) adresini açın.
+
+## Modüller
+- `/dashboard` : Genel özet ve istatistikler
+- `/products` : Ürün listesi ve filtreleme
+- `/addproduct` : Yeni ürün ekleme
+- `/orders` : Siparişler
+- `/customers` : Müşteriler
+- `/admin` : Admin kullanıcıları
+- `/coupons` : Kuponlar
+- `/categories` : Kategoriler
+- `/brands` : Markalar
+- `/transactions` : Finansal işlemler
+- `/users` : Kullanıcılar
+- `/logpage` : Sistem logları
+
+## Notlar
+- Proje demo amaçlıdır, veriler mock olarak tutulur.
+- Tüm sayfalar responsive ve dark mode uyumludur.
+- Geliştirme için önerilen Node.js sürümü: 18+
+
+---
+
+Aşağıdaki kısımlar Next.js'in orijinal README'sinden alınmıştır:
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

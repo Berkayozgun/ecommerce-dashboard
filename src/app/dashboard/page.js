@@ -78,10 +78,37 @@ export default function Page() {
   const mostSold = getMostSoldProduct();
   const mostBuyer = getMostBuyerCustomer();
 
+  // --- ENRICHED DATA ---
+  // Orders by status
+  const orderStatusCounts = orders.reduce((acc, order) => {
+    acc[order.status] = (acc[order.status] || 0) + 1;
+    return acc;
+  }, {});
+  const totalProducts = products.length;
+  const outOfStockProducts = 3; // Mock: you can calculate if you have stock info
+  const topCategory = (() => {
+    const catCount = {};
+    products.forEach((p) => {
+      catCount[p.category] = (catCount[p.category] || 0) + 1;
+    });
+    return Object.entries(catCount).sort((a, b) => b[1] - a[1])[0]?.[0] || "-";
+  })();
+  // New customers (mock: last 30 days)
+  const newCustomers = 2; // Mock, as no date info
+  // Payment method breakdown (mocked)
+  const paymentMethods = [
+    { name: "Credit Card", value: 68 },
+    { name: "PayPal", value: 22 },
+    { name: "Bank Transfer", value: 10 },
+  ];
+  // Active orders (mock: status = Onaylandı)
+  const activeOrders = orderStatusCounts["Onaylandı"] || 0;
+  const shippedOrders = orderStatusCounts["Kargoya Verildi"] || 0;
+
   return (
-    <div className="flex w-full flex-col min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+    <div className="flex w-full flex-col min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="flex flex-row w-full mt-6 px-8 justify-between items-center">
-        <h1 className="text-3xl font-extrabold text-indigo-700 drop-shadow">Dashboard</h1>
+        <h1 className="text-3xl font-extrabold text-indigo-700 dark:text-yellow-300 drop-shadow">Dashboard</h1>
         <div className="flex flex-row items-center gap-4">
           <span>{bellIcon}</span>
           <Avatar />
@@ -96,6 +123,24 @@ export default function Page() {
         <StatsCard title="Payment Per Customer" value={`$${stats.paymentPerCustomer}`} icon={totalOrderIcon} trend={trends.paymentPerCustomer} />
         <StatsCard title="Most Sold Product" value={mostSold.name} icon={totalOrderIcon} />
         <StatsCard title="Most Buyer Customer" value={mostBuyer.name} icon={<Image src={mostBuyer.profile} width={50} height={50} alt="Buyer" className="rounded-xl" />} />
+        <StatsCard title="Active Orders" value={activeOrders} icon={totalOrderIcon} />
+        <StatsCard title="Shipped Orders" value={shippedOrders} icon={totalOrderIcon} />
+        <StatsCard title="Total Products" value={totalProducts} icon={totalOrderIcon} />
+        <StatsCard title="Out of Stock" value={outOfStockProducts} icon={totalOrderIcon} />
+        <StatsCard title="Top Category" value={topCategory} icon={totalOrderIcon} />
+        <StatsCard title="New Customers (30d)" value={newCustomers} icon={totalUserIcon} />
+      </div>
+      {/* Payment Method Breakdown */}
+      <div className="w-full max-w-2xl mx-auto mb-16">
+        <h2 className="text-xl font-bold text-indigo-700 dark:text-yellow-300 mb-4">Payment Method Breakdown</h2>
+        <div className="flex flex-row gap-6 justify-center">
+          {paymentMethods.map((pm) => (
+            <div key={pm.name} className="flex flex-col items-center bg-white dark:bg-gray-800 rounded-xl shadow p-4 min-w-[120px] border border-gray-100 dark:border-gray-800">
+              <span className="text-lg font-bold text-indigo-700 dark:text-yellow-300 mb-1">{pm.name}</span>
+              <span className="text-2xl font-extrabold text-pink-500 dark:text-pink-300">{pm.value}%</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

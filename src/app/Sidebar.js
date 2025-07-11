@@ -1,6 +1,9 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+// Doğru import: src/app/components/DarkModeToggle
+import DarkModeToggle from "./components/DarkModeToggle";
 import {
   dashboardIcon,
   orderManagementIcon,
@@ -15,155 +18,82 @@ import {
   logsIcon,
 } from "./icons/SVGIcon";
 
+const navLinks = [
+  { href: "/dashboard", label: "Dashboard", icon: dashboardIcon },
+  { href: "/orders", label: "Order Management", icon: orderManagementIcon },
+  { href: "/customers", label: "Customers", icon: customersIcon },
+  { href: "/coupons", label: "Coupon Codes", icon: couponIcon },
+  { href: "/categories", label: "Categories", icon: categoriesIcon },
+  { href: "/transactions", label: "Transaction", icon: transactionIcon },
+  { href: "/brands", label: "Brand", icon: brandIcon },
+];
+const productLinks = [
+  { href: "/addproduct", label: "Add Product", icon: addProductIcon },
+  { href: "/products", label: "Product List", icon: productListIcon },
+];
+const adminLinks = [
+  { href: "/admin", label: "Manage Admins", icon: manageAdminIcon },
+  { href: "/logpage", label: "Logs", icon: logsIcon },
+];
+
 const Sidebar = () => {
   return (
-    <div className='sticky top-0 flex flex-col rounded-xl bg-white text-gray-700 w-64 p-4 shadow-xl shadow-blue-gray-900/5'>
-      <div className='flex flex-col sticky top-0'>
-        <div className='flex flex-row items-center justify-center gap-4'>
-          <Image
-            src='https://cdn.pixabay.com/photo/2017/01/13/01/22/rocket-1976107_1280.png'
-            alt='Free rocket icon symbol vector'
-            title='Download free HD stock image of Rocket Icon'
-            width='70'
-            height='70'
-          />
-          <Link href='/'>
-            <h1>Dashboard</h1>
-          </Link>
-        </div>
-        <ul className='flex flex-col p-4 '>
-          <Link href='/'>
-            <div className='text-xs uppercase text-gray-500'>Main Menu</div>
-          </Link>
-          <Link href='/dashboard'>
-            <div
-              role='button'
-              tabIndex='0'
-              className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-            >
-              <div>{dashboardIcon}</div>
-              <div>Dashboard</div>
-            </div>
-          </Link>
-          <Link href='/orders'>
-            <div
-              role='button'
-              tabIndex='0'
-              className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-            >
-              {" "}
-              {orderManagementIcon}
-              <div>Order Management</div>
-            </div>
-          </Link>
-          <Link href='/customers'>
-            <div
-              role='button'
-              tabIndex='0'
-              className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-            >
-              {" "}
-              {customersIcon}
-              <div>Customers</div>
-            </div>
-          </Link>
-          <Link href='./coupons'>
-            <div
-              role='button'
-              tabIndex='0'
-              className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-            >
-              {" "}
-              {couponIcon}
-              <div>Coupon Codes</div>
-            </div>
-          </Link>
-          <Link href='./categories'>
-            <div
-              role='button'
-              tabIndex='0'
-              className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-            >
-              {" "}
-              {categoriesIcon}
-              <div>Categories</div>
-            </div>
-          </Link>
-          <Link href='./transactions'>
-            <div
-              role='button'
-              tabIndex='0'
-              className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-            >
-              {" "}
-              {transactionIcon}
-              <div>Transaction</div>
-            </div>
-          </Link>
-          <Link href='./brands'>
-            <div
-              role='button'
-              tabIndex='0'
-              className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-            >
-              {" "}
-              {brandIcon}
-              <div>Brand</div>
-            </div>
-          </Link>
-        </ul>
-        <ul className='flex flex-col p-4 '>
-          <Link href='./addproduct'>
-            <div className='text-xs uppercase text-gray-500'>Products</div>
-            <div
-              role='button'
-              tabIndex='0'
-              className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-            >
-              {" "}
-              {addProductIcon}
-              <div>Add Products</div>
-            </div>
-          </Link>
-          <Link href='/products'>
-            <div
-              role='button'
-              tabIndex='0'
-              className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-            >
-              {" "}
-              {productListIcon}
-              <div>Product List</div>
-            </div>
-          </Link>
-        </ul>
-        <ul className='flex flex-col p-4 '>
-          <Link href='./admin'>
-            <div className='text-xs uppercase text-gray-500'>Admin</div>
-            <div
-              role='button'
-              tabIndex='0'
-              className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-            >
-              {" "}
-              {manageAdminIcon}
-              <div>Manage Admins</div>
-            </div>
-          </Link>
-          <Link href='./logpage'>
-            <div
-              role='button'
-              tabIndex='0'
-              className='flex items-center w-full p-3 gap-x-2 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none'
-            >
-              {" "}
-              {logsIcon}
-              <div>Logs</div>
-            </div>
-          </Link>
-        </ul>
+    <aside className="sticky top-0 h-screen flex flex-col bg-gradient-to-b from-white via-indigo-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 w-64 p-4 shadow-2xl border-r border-gray-100 dark:border-gray-800 z-30 text-gray-900 dark:text-gray-100">
+      <div className="flex flex-col items-center mb-8 gap-2">
+        <Image
+          src="https://cdn.pixabay.com/photo/2017/01/13/01/22/rocket-1976107_1280.png"
+          alt="Rocket Icon"
+          width={56}
+          height={56}
+          className="rounded-xl shadow dark:invert"
+        />
+        <Link href="/" className="mt-2 text-2xl font-extrabold text-indigo-700 dark:text-yellow-300 tracking-tight drop-shadow hover:text-pink-500 transition">Dashboard</Link>
       </div>
-    </div>
+      <nav className="flex-1 flex flex-col gap-6">
+        <div>
+          <div className="text-xs uppercase text-gray-400 dark:text-gray-300 font-bold mb-2 px-2 tracking-widest">Main Menu</div>
+          <ul className="flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="flex items-center gap-3 px-3 py-2 rounded-lg font-medium text-gray-700 dark:text-gray-100 hover:bg-indigo-100 dark:hover:bg-gray-800 hover:text-indigo-700 dark:hover:text-yellow-300 focus:bg-indigo-200 focus:text-indigo-900 transition group">
+                  <span className="w-6 h-6 flex items-center justify-center text-gray-700 dark:text-gray-100">{link.icon}</span>
+                  <span className="truncate">{link.label}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <div className="text-xs uppercase text-gray-400 dark:text-gray-300 font-bold mb-2 px-2 tracking-widest">Products</div>
+          <ul className="flex flex-col gap-1">
+            {productLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="flex items-center gap-3 px-3 py-2 rounded-lg font-medium text-gray-700 dark:text-gray-100 hover:bg-indigo-100 dark:hover:bg-gray-800 hover:text-indigo-700 dark:hover:text-yellow-300 focus:bg-indigo-200 focus:text-indigo-900 transition group">
+                  <span className="w-6 h-6 flex items-center justify-center text-gray-700 dark:text-gray-100">{link.icon}</span>
+                  <span className="truncate">{link.label}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <div className="text-xs uppercase text-gray-400 dark:text-gray-300 font-bold mb-2 px-2 tracking-widest">Admin</div>
+          <ul className="flex flex-col gap-1">
+            {adminLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="flex items-center gap-3 px-3 py-2 rounded-lg font-medium text-gray-700 dark:text-gray-100 hover:bg-indigo-100 dark:hover:bg-gray-800 hover:text-indigo-700 dark:hover:text-yellow-300 focus:bg-indigo-200 focus:text-indigo-900 transition group">
+                  <span className="w-6 h-6 flex items-center justify-center text-gray-700 dark:text-gray-100">{link.icon}</span>
+                  <span className="truncate">{link.label}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+      <div className="mt-auto flex justify-center pt-4">
+        <DarkModeToggle />
+      </div>
+    </aside>
   );
 };
 
