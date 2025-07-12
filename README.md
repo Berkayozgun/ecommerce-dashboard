@@ -47,44 +47,46 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Screenshots
 
+<!-- Screenshots of the E-commerce Dashboard -->
+
 ### Dashboard Overview
-![Dashboard](/dashboard-overview.png)
+![Dashboard](https://raw.githubusercontent.com/Berkayozgun/ecommerce-dashboard/master/public/dashboard-overview.png)
 *Main dashboard with live statistics and system status*
 
 ### Product Management
-![Products](/products-page.png)
+![Products](https://raw.githubusercontent.com/Berkayozgun/ecommerce-dashboard/master/public/products-page.png)
 *Product listing with advanced filtering and search capabilities*
 
 ### Order Management
-![Orders](/orders-page.png)
+![Orders](https://raw.githubusercontent.com/Berkayozgun/ecommerce-dashboard/master/public/orders-page.png)
 *Order tracking and management interface*
 
 ### Customer Management
-![Customers](/customers-page.png)
+![Customers](https://raw.githubusercontent.com/Berkayozgun/ecommerce-dashboard/master/public/customers-page.png)
 *Customer database with detailed information*
 
 ### Admin Panel
-![Admin](/admin-panel.png)
+![Admin](https://raw.githubusercontent.com/Berkayozgun/ecommerce-dashboard/master/public/admin-panel.png)
 *Admin user management with permissions*
 
 ### Dark Mode Support
-![Dark Mode](/dark-mode-example.png)
+![Dark Mode](https://raw.githubusercontent.com/Berkayozgun/ecommerce-dashboard/master/public/dark-mode-example.png)
 *Full dark mode compatibility across all pages*
 
 ### Add Product Form
-![Add Product](/add-product-form.png)
+![Add Product](https://raw.githubusercontent.com/Berkayozgun/ecommerce-dashboard/master/public/add-product-form.png)
 *Product creation form with validation*
 
 ### Coupons Management
-![Coupons](/coupons-page.png)
+![Coupons](https://raw.githubusercontent.com/Berkayozgun/ecommerce-dashboard/master/public/coupons-page.png)
 *Coupon management and configuration*
 
 ### Categories & Brands
-![Categories](/categories-page.png)
+![Categories](https://raw.githubusercontent.com/Berkayozgun/ecommerce-dashboard/master/public/categories-page.png)
 *Category and brand management interface*
 
 ### Transactions History
-![Transactions](/transactions-page.png)
+![Transactions](https://raw.githubusercontent.com/Berkayozgun/ecommerce-dashboard/master/public/transactions-page.png)
 *Financial transaction tracking and logs*
 
 ## Notes
