@@ -45,6 +45,48 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - `/users` : Users
 - `/logpage` : System logs
 
+## Screenshots
+
+### Dashboard Overview
+![Dashboard](/dashboard-overview.png)
+*Main dashboard with live statistics and system status*
+
+### Product Management
+![Products](/products-page.png)
+*Product listing with advanced filtering and search capabilities*
+
+### Order Management
+![Orders](/orders-page.png)
+*Order tracking and management interface*
+
+### Customer Management
+![Customers](/customers-page.png)
+*Customer database with detailed information*
+
+### Admin Panel
+![Admin](/admin-panel.png)
+*Admin user management with permissions*
+
+### Dark Mode Support
+![Dark Mode](/dark-mode-example.png)
+*Full dark mode compatibility across all pages*
+
+### Add Product Form
+![Add Product](/add-product-form.png)
+*Product creation form with validation*
+
+### Coupons Management
+![Coupons](/coupons-page.png)
+*Coupon management and configuration*
+
+### Categories & Brands
+![Categories](/categories-page.png)
+*Category and brand management interface*
+
+### Transactions History
+![Transactions](/transactions-page.png)
+*Financial transaction tracking and logs*
+
 ## Notes
 - This project is for demo purposes; all data is mock.
 - All pages are responsive and support dark mode.
